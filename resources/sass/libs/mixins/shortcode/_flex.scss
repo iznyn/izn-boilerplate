@@ -1,67 +1,113 @@
 //=====================================================================
 // Mixins Functions
 //=====================================================================
-@mixin flex-display() {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
+@mixin flex() {
     display: flex;
 }
-@mixin flex( $attr, $width: 0 ) {
-  @if $width == 0 {
-    -webkit-box-flex: $attr;
-       -moz-box-flex: $attr;
-    -webkit-flex: $attr;
-        -ms-flex: $attr;
-            flex: $attr;
-  } @else {
-    width: $width;
-    -webkit-box-flex: $attr;
-       -moz-box-flex: $attr;
-    -webkit-flex: $attr;
-        -ms-flex: $attr;
-            flex: $attr; 
-  }
+
+@mixin flex-direction($dir) {
+    flex-direction: $dir;
 }
 
-@mixin flex-align( $align ) {
-      -webkit-box-align: $align;
-         -moz-box-align: $align;
-         -ms-flex-align: $align;
-    -webkit-align-items: $align;
-            align-items: $align;
+@mixin flex-wrap($wrap) {
+    flex-wrap: $wrap;
 }
 
-@mixin flex-justify( $justify ) {
-           -webkit-box-pack: $justify;
-              -moz-box-pack: $justify;
-              -ms-flex-pack: $justify;
-    -webkit-justify-content: $justify;
-            justify-content: $justify;
+@mixin align-items($align) {
+    align-items: $align;
 }
 
-@mixin flex-ordinal( $ordinal ) {
-    -webkit-box-ordinal-group: abs( $ordinal );
-       -moz-box-ordinal-group: abs( $ordinal );
-               -ms-flex-order: $ordinal;
-           -webkit-flex-order: $ordinal;
-                        order: $ordinal;
+@mixin align-self($align) {
+    align-self: $align;
+}
+
+@mixin align-content($align) {
+    align-content: $align;
 }
 
 
 //=====================================================================
 // Mixins Shortcode
 //=====================================================================
-@mixin fxd() {
-    @include flex-display();
+@mixin fx() {
+    @include flex();
 }
-@mixin fx( $attr, $width: 0 ) {
-    @include flex( $attr, $width );
+
+//Flex direction
+@mixin fx-d-r() {
+    @include flex-direction(row);
 }
-@mixin fxa( $align ) {
-    @include flex-align( $align );
+@mixin fx-d-rr() {
+    @include flex-direction(row-reverse);
 }
-@mixin fxj( $justify ) {
-    @include flex-justify( $justify );
+@mixin fx-d-c() {
+    @include flex-direction(column);
+}
+@mixin fx-d-rc() {
+    @include flex-direction(column-reverse);
+}
+
+//Flex wrap
+@mixin fx-w-nw() {
+    @include flex-wrap(nowrap);
+}
+@mixin fx-w-w() {
+    @include flex-wrap(wrap);
+}
+@mixin fx-w-ws() {
+    @include flex-wrap(wrap-reverse);
+}
+
+//Align items
+@mixin ai-fs() {
+    @include align-items(flex-start);
+}
+@mixin ai-fe() {
+    @include align-items(flex-end);
+}
+@mixin ai-s() {
+    @include align-items(stretch);
+}
+@mixin ai-c() {
+    @include align-items(center);
+}
+@mixin ai-bl() {
+    @include align-items(baseline);
+}
+
+//Align self
+@mixin as-fs() {
+    @include align-self(flex-start);
+}
+@mixin as-fe() {
+    @include align-self(flex-end);
+}
+@mixin as-s() {
+    @include align-self(stretch);
+}
+@mixin as-c() {
+    @include align-self(center);
+}
+@mixin as-bl() {
+    @include align-self(baseline);
+}
+
+//Align content
+@mixin ac-fs() {
+    @include align-content(flex-start);
+}
+@mixin ac-fe() {
+    @include align-content(flex-end);
+}
+@mixin as-s() {
+    @include align-content(stretch);
+}
+@mixin as-c() {
+    @include align-content(center);
+}
+@mixin as-sb() {
+    @include align-content(space-between);
+}
+@mixin as-sa() {
+    @include align-content(space-around);
 }
