@@ -3,16 +3,10 @@ module.exports = function(grunt)
   'use strict';
 
   var script_lib = [
-    './node_modules/jquery/dist/jquery.js',
-    './node_modules/imagesloaded/imagesloaded.pkgd.js',
-    './node_modules/jquery.transit/jquery.transit.js',
-    './node_modules/hamsterjs/hamster.js',
-    './node_modules/remodal/dist/remodal.js'
+    './node_modules/jquery/dist/jquery.js'
   ];
 
   var style_lib = [
-      './node_modules/remodal/dist/remodal.css',
-      './node_modules/remodal/dist/remodal-default-theme.css'
   ];
 
   var convertToBlade = false;
@@ -26,6 +20,8 @@ module.exports = function(grunt)
     var pugDest = 'public/';
     var pugTask = ['pug'];
   }
+
+  const sass = require('node-sass');
 
   //
   //Grunt config
@@ -145,6 +141,7 @@ module.exports = function(grunt)
     sass: {
       basic: {
         options: {
+          implementation: sass,
           compass: true,
           sourcemap: 'none',
           style: 'expended'
