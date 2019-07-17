@@ -3,7 +3,6 @@ module.exports = function(grunt)
   'use strict';
 
   var script_lib = [
-    './node_modules/jquery/dist/jquery.js'
   ];
 
   var style_lib = [
@@ -51,33 +50,33 @@ module.exports = function(grunt)
         src: [
           '<%= meta.scripts %>ts/*.ts'
         ],
-        dest: '<%= meta.scripts %>/dist/ts.js'
+        dest: '<%= meta.scripts %>dist/ts.js'
       },
       babelify: {
         options: {
-          transform: [["babelify", { "presets": ["es2015"] }]]
+          transform: [["babelify", { "presets": ["@babel/env"] }]]
         },
         src: [
           '<%= meta.scripts %>src/*.js'
         ],
-        dest: '<%= meta.scripts %>/dist/main.js'
+        dest: '<%= meta.scripts %>dist/main.js'
       },
       general: {
         src: [
           '<%= meta.scripts %>src/*.js'
         ],
-        dest: '<%= meta.scripts %>/dist/main.js'
+        dest: '<%= meta.scripts %>dist/main.js'
       }
     },
 
     babel: {
   		options: {
   			sourceMap: true,
-  			presets: ['es2015']
+  			presets: ['@babel/env']
   		},
   		dist: {
   			files: {
-  				'<%= meta.scripts %>/dist/main.js': '<%= meta.scripts %>/src/main.js'
+  				'<%= meta.scripts %>dist/main.js': '<%= meta.scripts %>src/main.js'
   			}
   		}
   	},
@@ -97,20 +96,20 @@ module.exports = function(grunt)
       },
       npm_libs: {
           src: script_lib,
-          dest: '<%= meta.scripts %>/dist/libs.js',
+          dest: '<%= meta.scripts %>dist/libs.js',
       },
       js_basic: {
         src: [
-          '<%= meta.scripts %>/vendors/*.js',
+          '<%= meta.scripts %>vendors/*.js',
           '<%= meta.scripts %>src/scripts.js'
         ],
-        dest: '<%= meta.scripts %>/dist/general.js'
+        dest: '<%= meta.scripts %>dist/general.js'
       },
       js_general: {
         src: [
-          '<%= meta.scripts %>/dist/libs.js',
-          '<%= meta.scripts %>/vendors/*.js',
-          '<%= meta.scripts %>/dist/main.js'
+          '<%= meta.scripts %>dist/libs.js',
+          '<%= meta.scripts %>vendors/*.js',
+          '<%= meta.scripts %>dist/main.js'
         ],
         dest: '<%= meta.public %>js/scripts.js',
       }
@@ -129,7 +128,7 @@ module.exports = function(grunt)
           require('postcss-short')(),
           require('postcss-fontpath')(),
           require('autoprefixer')({
-            browsers: ['last 2 versions', 'ie 6-8', 'Firefox > 20']
+            overrideBrowserslist: ['last 2 versions', 'ie 6-8', 'Firefox > 20']
           })
         ]
       },
