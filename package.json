@@ -39,7 +39,7 @@
     "compass-mixins": "^0.12.10",
     "flexslider": "^2.7.2",
     "imagesloaded": "^4.1.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery.transit": "^0.9.12"
   }
 }
