@@ -20,7 +20,7 @@
     "grunt-cssnano": "^3.0.0",
     "grunt-postcss": "^0.9.0",
     "grunt-sass": "^3.0.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "postcss-focus": "^4.0.0",
     "postcss-fontpath": "^1.0.0",
     "postcss-scss": "^2.0.0",
