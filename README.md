@@ -1,4 +1,4 @@
-# GUCCI
+# Izn Boilerplate
 
 ## Development
 
