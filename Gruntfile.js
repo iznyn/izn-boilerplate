@@ -255,7 +255,7 @@ module.exports = function(grunt)
 
   grunt.initConfig( gruntConfig );
 
-  grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('@lodder/grunt-postcss');
   grunt.loadNpmTasks('grunt-cssnano');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');

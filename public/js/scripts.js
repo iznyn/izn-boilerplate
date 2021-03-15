@@ -16,9 +16,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 //
 // Home lib
 //
-var Home =
-/*#__PURE__*/
-function () {
+var Home = /*#__PURE__*/function () {
   /**
    * Class constructor
    *
