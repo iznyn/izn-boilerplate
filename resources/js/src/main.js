@@ -1,14 +1,13 @@
 //
 // Main JS
 //
-import HomeLib from "../libs/Home";
+import HomeLib from '../libs/Home';
 
 (function ($) {
-    "use strict";
+  'use strict';
 
-    $(document).ready(function ()
-    {
-        //Home script
-        new HomeLib().init();
-    });
+  $(document).ready(function () {
+    //Home script
+    new HomeLib().init();
+  });
 })(jQuery);

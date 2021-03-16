@@ -1,25 +1,20 @@
 //
 // Home lib
 //
-class Home
-{
-    /**
-     * Class constructor
-     *
-     * @return void
-     */
-    constructor()
-    {
-    }
+class Home {
+  /**
+   * Class constructor
+   *
+   * @return void
+   */
+  constructor() {}
 
-    /**
-     * Init
-     *
-     * @return mixed
-     */
-    init()
-    {
-    }
-};
+  /**
+   * Init
+   *
+   * @return mixed
+   */
+  init() {}
+}
 
 export default Home;
