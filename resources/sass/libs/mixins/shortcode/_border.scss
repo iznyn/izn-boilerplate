@@ -4,109 +4,109 @@
 
 //Border shortcode
 @mixin bo( $color, $width: 1px, $style: solid ) {
-    border: $width $style $color;
+  border: $width $style $color;
 }
 @mixin bot( $color, $width: 1px, $style: solid ) {
-    border-top: $width $style $color;
+  border-top: $width $style $color;
 }
 @mixin bob( $color, $width: 1px, $style: solid ) {
-    border-bottom: $width $style $color;
+  border-bottom: $width $style $color;
 }
 @mixin bol( $color, $width: 1px, $style: solid ) {
-    border-left: $width $style $color;
+  border-left: $width $style $color;
 }
 @mixin bor( $color, $width: 1px, $style: solid ) {
-    border-right: $width $style $color;
+  border-right: $width $style $color;
 }
 @mixin bo0() {
-    border: 0 none;
+  border: 0 none;
 }
 @mixin bot0() {
-    border-top: 0 none;
+  border-top: 0 none;
 }
 @mixin bob0() {
-    border-bottom: 0 none;
+  border-bottom: 0 none;
 }
 @mixin bol0() {
-    border-left: 0 none;
+  border-left: 0 none;
 }
 @mixin bor0() {
-    border-right: 0 none;
+  border-right: 0 none;
 }
 
 //Border Vertical shortcode
 @mixin boy( $color, $width: 1px, $style: solid ) {
-    @include bot( $color, $width, $style );
-    @include bob( $color, $width, $style );
+  @include bot( $color, $width, $style );
+  @include bob( $color, $width, $style );
 }
 //Border Horizontal shortcode
 @mixin box( $color, $width: 1px, $style: solid ) {
-    @include bol( $color, $width, $style );
-    @include bor( $color, $width, $style );
+  @include bol( $color, $width, $style );
+  @include bor( $color, $width, $style );
 }
 
 //Border color shortcode
 @mixin boc( $color ) {
-    border-color:  $color;
+  border-color: $color;
 }
 @mixin boct( $color ) {
-    border-top-color:  $color;
+  border-top-color: $color;
 }
 @mixin bocb( $color ) {
-    border-bottom-color:  $color;
+  border-bottom-color: $color;
 }
 @mixin bocl( $color ) {
-    border-left-color:  $color;
+  border-left-color: $color;
 }
 @mixin bocr( $color ) {
-    border-right-color:  $color;
+  border-right-color: $color;
 }
 @mixin boc0() {
-    @include boc( transparent );
+  @include boc( transparent );
 }
 @mixin boct0() {
-    @include boct( transparent );
+  @include boct( transparent );
 }
 @mixin bocb0() {
-    @include bocb( transparent );
+  @include bocb( transparent );
 }
 @mixin bocl0() {
-    @include bocl( transparent );
+  @include bocl( transparent );
 }
 @mixin bocr0() {
-    @include bocr( transparent );
+  @include bocr( transparent );
 }
 
 //Border width shortcode
 @mixin bow( $width ) {
-    border-width:  $width;
+  border-width: $width;
 }
 @mixin bowt( $width ) {
-    border-top-width:  $width;
+  border-top-width: $width;
 }
 @mixin bowb( $width ) {
-    border-bottom-width:  $width;
+  border-bottom-width: $width;
 }
 @mixin bowl( $width ) {
-    border-left-width:  $width;
+  border-left-width: $width;
 }
 @mixin bowr( $width ) {
-    border-right-width:  $width;
+  border-right-width: $width;
 }
 
 //Border style shortcode
 @mixin bos( $style ) {
-    border-style:  $style;
+  border-style: $style;
 }
 @mixin bost( $style ) {
-    border-top-style:  $style;
+  border-top-style: $style;
 }
 @mixin bosb( $style ) {
-    border-bottom-style:  $style;
+  border-bottom-style: $style;
 }
 @mixin bosl( $style ) {
-    border-left-style:  $style;
+  border-left-style: $style;
 }
 @mixin bosr( $style ) {
-    border-right-style:  $style;
+  border-right-style: $style;
 }

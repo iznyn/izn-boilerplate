@@ -2,17 +2,17 @@
 //Text decoration shortcode
 //=====================================================================
 @mixin td( $type ) {
-    text-decoration: $type;
+  text-decoration: $type;
 }
 @mixin td0() {
-    @include td( none );
+  @include td( none );
 }
 @mixin tdul() {
-    @include td( underline );
+  @include td( underline );
 }
 @mixin tdol() {
-    @include td( overline );
+  @include td( overline );
 }
 @mixin tdlt() {
-    @include td( line-through );
+  @include td( line-through );
 }

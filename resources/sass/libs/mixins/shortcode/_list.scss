@@ -2,17 +2,17 @@
 //List Style shortcode
 //=====================================================================
 @mixin ls( $attr ) {
-    list-style: $attr;
+  list-style: $attr;
 }
 @mixin ls0() {
-    @include ls( none );
+  @include ls( none );
 }
 @mixin lst( $type ) {
-    list-style-type: $type;
+  list-style-type: $type;
 }
 @mixin lsp( $pos ) {
-    list-style-position: $pos;
+  list-style-position: $pos;
 }
 @mixin lsi( $path ) {
-    list-style-image: $path;
+  list-style-image: $path;
 }

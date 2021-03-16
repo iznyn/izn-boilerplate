@@ -2,42 +2,42 @@
 //Overflow shortcode
 //=====================================================================
 @mixin of( $type ) {
-    overflow: $type;
+  overflow: $type;
 }
 @mixin ofh() {
-    @include of( hidden );
+  @include of( hidden );
 }
 @mixin ofs() {
-    @include of( scroll );
+  @include of( scroll );
 }
 @mixin ofa() {
-    @include of( auto );
+  @include of( auto );
 }
 
 //overflow-x
 @mixin ofX( $type ) {
-    overflow-x: $type;
+  overflow-x: $type;
 }
 @mixin ofXh() {
-    @include ofX( hidden );
+  @include ofX( hidden );
 }
 @mixin ofXs() {
-    @include ofX( scroll );
+  @include ofX( scroll );
 }
 @mixin ofXa() {
-    @include ofX( auto );
+  @include ofX( auto );
 }
 
 //overflow-y
 @mixin ofY( $type ) {
-    overflow-y: $type;
+  overflow-y: $type;
 }
 @mixin ofYh() {
-    @include ofY( hidden );
+  @include ofY( hidden );
 }
 @mixin ofYs() {
-    @include ofY( scroll );
+  @include ofY( scroll );
 }
 @mixin ofYa() {
-    @include ofY( auto );
+  @include ofY( auto );
 }

@@ -2,11 +2,11 @@
 //White space shortcode
 //=====================================================================
 @mixin whs( $type ) {
-    white-space: $type;
+  white-space: $type;
 }
 
 //Word spacing shortcode
 //=====================================================================
 @mixin ws( $size ) {
-    word-spacing: $size;
+  word-spacing: $size;
 }

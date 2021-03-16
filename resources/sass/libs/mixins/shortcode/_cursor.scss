@@ -2,20 +2,20 @@
 // Cursor Shortcode
 //=====================================================================
 @mixin cu( $value ) {
-    cursor: $value;
+  cursor: $value;
 }
 @mixin cu0() {
-    @include cu( none );
+  @include cu( none );
 }
 @mixin cud() {
-    @include cu( default );
+  @include cu( default );
 }
 @mixin cuh() {
-    @include cu( help );
+  @include cu( help );
 }
 @mixin cum() {
-    @include cu( move );
+  @include cu( move );
 }
 @mixin cup() {
-    @include cu( pointer );
+  @include cu( pointer );
 }

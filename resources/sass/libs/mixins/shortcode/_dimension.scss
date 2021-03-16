@@ -4,61 +4,61 @@
 //
 //Width shortcode
 @mixin w( $w ) {
-    width: $w;
+  width: $w;
 }
 @mixin wp( $w, $d: 1 ) {
-    @include set-percent( width, $w, $d );
+  @include set-percent( width, $w, $d );
 }
 @mixin w0() {
-    @include w(0);
+  @include w(0);
 }
 //Width auto
 @mixin wa() {
-    @include w( auto );
+  @include w( auto );
 }
 //Width full
 @mixin wf() {
-    @include w( 100% );
+  @include w( 100% );
 }
 
 //
 //Height shortcode
 @mixin h( $h ) {
-    height: $h;
+  height: $h;
 }
 @mixin hp( $h, $d: 1 ) {
-    @include set-percent( height, $h, $d );
+  @include set-percent( height, $h, $d );
 }
 @mixin h0() {
-    @include h(0);
+  @include h(0);
 }
 //Height auto
 @mixin ha() {
-    @include h( auto );
+  @include h( auto );
 }
 //Height full
 @mixin hf() {
-    @include h( 100% );
+  @include h( 100% );
 }
 //Height + line height
 @mixin hlh( $size ) {
-    @include h( $size );
-    @include lh( $size );
+  @include h( $size );
+  @include lh( $size );
 }
 
 //Size shortcode
 @mixin wh( $w, $h ) {
-    @include w( $w );
-    @include h( $h );
+  @include w( $w );
+  @include h( $h );
 }
 @mixin wh0() {
-    @include wh(0,0);
+  @include wh(0,0);
 }
 //Size auto
 @mixin wha() {
-    @include wh( auto, auto );
+  @include wh( auto, auto );
 }
 //Size full
 @mixin whf() {
-    @include wh( 100%, 100% );
+  @include wh( 100%, 100% );
 }

@@ -2,17 +2,17 @@
 //Text Align shortcode
 //=====================================================================
 @mixin ta( $dir ) {
-    text-align: $dir;
+  text-align: $dir;
 }
 @mixin tal() {
-    @include ta( left );
+  @include ta( left );
 }
 @mixin tar() {
-    @include ta( right );
+  @include ta( right );
 }
 @mixin tac() {
-    @include ta( center );
+  @include ta( center );
 }
 @mixin taj() {
-    @include ta( justify );
+  @include ta( justify );
 }

@@ -3,126 +3,126 @@
 //=====================================================================
 //Background shortcode
 @mixin bg( $attr ) {
-    background: $attr;
+  background: $attr;
 }
 //Background color shortcode
 @mixin bgc( $color ) {
-    background-color: $color;
+  background-color: $color;
 }
 @mixin bgc0() {
-    background-color: transparent;
+  background-color: transparent;
 }
 @mixin bgc-rgba( $r, $g, $b, $amount ) {
-    background-color: rgba($r,$g,$b,$amount);
+  background-color: rgba($r, $g, $b, $amount);
 }
 //Background image shortcode
 @mixin bgi( $src ) {
-    background-image: url("${src}");
+  background-image: url('${src}');
 }
 @mixin bgi0() {
-    background-image: none;
+  background-image: none;
 }
 //Background position shortcode
 @mixin bgp( $x, $y ) {
-    background-position: $x $y;
+  background-position: $x $y;
 }
 @mixin bgp0() {
-    @include bgp( 0, 0 );
+  @include bgp( 0, 0 );
 }
 //Background repeat shortcode
 @mixin bgr( $repeat ) {
-    background-repeat: $repeat;
+  background-repeat: $repeat;
 }
 @mixin bgr0() {
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 //Background size shortcode
 @mixin bgs( $size ) {
-    background-size: $size;
+  background-size: $size;
 }
 @mixin bgsc() {
-    background-size: cover;
+  background-size: cover;
 }
 @mixin bgscn() {
-    background-size: contain;
+  background-size: contain;
 }
 @mixin bgs0() {
-    background-size: auto;
+  background-size: auto;
 }
 
 //
 //Specified background position shortcode
 //
 @mixin bgptl() {
-	background-position: top left;
+  background-position: top left;
 }
 @mixin bgptr() {
-	background-position: top right;
+  background-position: top right;
 }
 @mixin bgptc() {
-	background-position: top center;
+  background-position: top center;
 }
 @mixin bgpcc() {
-	background-position: center center;
+  background-position: center center;
 }
 @mixin bgpbl() {
-	background-position: bottom left;
+  background-position: bottom left;
 }
 @mixin bgpbr() {
-	background-position: bottom right;
+  background-position: bottom right;
 }
 @mixin bgpbc() {
-	background-position: bottom center;
+  background-position: bottom center;
 }
 
 //
 //Specified background color shortcode
 //
 @mixin bgc00() {
-	background-color: #000000;
+  background-color: #000;
 }
 @mixin bgc1() {
-	background-color: #111111;
+  background-color: #111;
 }
 @mixin bgc2() {
-	background-color: #222222;
+  background-color: #222;
 }
 @mixin bgc3() {
-	background-color: #333333;
+  background-color: #333;
 }
 @mixin bgc4() {
-	background-color: #444444;
+  background-color: #444;
 }
 @mixin bgc5() {
-	background-color: #555555;
+  background-color: #555;
 }
 @mixin bgc6() {
-	background-color: #666666;
+  background-color: #666;
 }
 @mixin bgc7() {
-	background-color: #777777;
+  background-color: #777;
 }
 @mixin bgc8() {
-	background-color: #888888;
+  background-color: #888;
 }
 @mixin bgc9() {
-	background-color: #999999;
+  background-color: #999;
 }
 @mixin bgca() {
-	background-color: #aaaaaa;
+  background-color: #aaa;
 }
 @mixin bgcb() {
-	background-color: #bbbbbb;
+  background-color: #bbb;
 }
 @mixin bgcc() {
-	background-color: #cccccc;
+  background-color: #ccc;
 }
 @mixin bgcd() {
-	background-color: #dddddd;
+  background-color: #ddd;
 }
 @mixin bgcc() {
-	background-color: #eeeeee;
+  background-color: #eee;
 }
 @mixin bgcf() {
-	background-color: #ffffff;
+  background-color: #fff;
 }

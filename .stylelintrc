@@ -1,7 +1,11 @@
 {
-  "processors": ["stylelint-processor-styled-components"],
   "extends": [
     "stylelint-config-recommended",
-    "stylelint-config-styled-components"
-  ]
+    "stylelint-config-sass-guidelines"
+  ],
+  "rules": {
+    declaration-block-trailing-semicolon: null,
+    selector-no-qualifying-type: false,
+    scss/at-mixin-pattern: null
+  }
 }

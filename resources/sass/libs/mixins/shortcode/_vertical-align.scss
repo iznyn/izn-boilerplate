@@ -2,14 +2,14 @@
 //Vertical Align shortcode
 //=====================================================================
 @mixin va( $dir ) {
-    vertical-align: $dir;
+  vertical-align: $dir;
 }
 @mixin vat() {
-    @include va( top );
+  @include va( top );
 }
 @mixin vab() {
-    @include va( bottom );
+  @include va( bottom );
 }
 @mixin vam() {
-    @include va( middle );
+  @include va( middle );
 }

@@ -2,9 +2,9 @@
 // Diamond
 //=====================================================================
 @mixin diamond( $width ) {
-	$w: $width * 0.7;
-	$m: $w/10;
-	@include square( $w );
-	@include rotate( 45deg );
-	@include m( $m );
+  $w: $width * 0.7;
+  $m: $w/10;
+  @include square( $w );
+  @include rotate( 45deg );
+  @include m( $m );
 }

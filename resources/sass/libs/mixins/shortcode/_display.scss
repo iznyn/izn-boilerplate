@@ -2,20 +2,20 @@
 //Display shortcode
 //=====================================================================
 @mixin d( $type ) {
-    display: $type;
+  display: $type;
 }
 @mixin di() {
-    @include d( inline );
+  @include d( inline );
 }
 @mixin db() {
-    @include d( block );
+  @include d( block );
 }
 @mixin dib() {
-    @include d( inline-block );
+  @include d( inline-block );
 }
 @mixin dt() {
-    @include d( table );
+  @include d( table );
 }
 @mixin d0() {
-    @include d( none );
+  @include d( none );
 }

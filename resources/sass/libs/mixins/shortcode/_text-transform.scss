@@ -2,14 +2,14 @@
 //Text transform shortcode
 //=====================================================================
 @mixin tt( $type ) {
-    text-transform: $type;
+  text-transform: $type;
 }
 @mixin ttuc() {
-    @include tt( uppercase );
+  @include tt( uppercase );
 }
 @mixin ttlc() {
-    @include tt( lowercase );
+  @include tt( lowercase );
 }
 @mixin ttcap() {
-    @include tt( capitalize );
+  @include tt( capitalize );
 }

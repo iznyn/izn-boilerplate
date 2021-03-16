@@ -3,8 +3,8 @@
 //=====================================================================
 @mixin browser-ext( $attr, $value ) {
   -webkit-#{$attr}: $value;
-     -moz-#{$attr}: $value;
-      -ms-#{$attr}: $value;
-       -o-#{$attr}: $value;
-          #{$attr}: $value;
+  -moz-#{$attr}: $value;
+  -ms-#{$attr}: $value;
+  -o-#{$attr}: $value;
+  #{$attr}: $value;
 }
