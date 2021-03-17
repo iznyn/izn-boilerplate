@@ -109,7 +109,7 @@ module.exports = function (grunt) {
     uglify: {
       general: {
         src: '<%= meta.public %>js/scripts.js',
-        dest: '<%= meta.public %>js/scripts.min.js',
+        dest: '<%= meta.public %>js/scripts.js',
       },
     },
 
@@ -121,6 +121,7 @@ module.exports = function (grunt) {
           require('autoprefixer')({
             overrideBrowserslist: ['last 2 versions', 'ie 6-8', 'Firefox > 20'],
           }),
+          require('cssnano')(),
         ],
       },
       dist: {
@@ -145,19 +146,6 @@ module.exports = function (grunt) {
             ext: '.css',
           },
         ],
-      },
-    },
-
-    cssnano: {
-      options: {
-        sourcemap: false,
-        zindex: false,
-      },
-      dist: {
-        files: {
-          '<%= meta.public %>css/styles.min.css':
-            '<%= meta.public %>css/styles.css',
-        },
       },
     },
 
@@ -216,7 +204,7 @@ module.exports = function (grunt) {
       },
       style: {
         files: ['<%= meta.styles %>/**/*.sass', '<%= meta.styles %>/**/*.scss'],
-        //tasks: ['sass','concat:css_libs','concat:css_general','postcss','cssnano']
+        //tasks: ['sass','concat:css_libs','concat:css_general','postcss']
         tasks: ['sass', 'concat:css_libs', 'concat:css_general'],
       },
       script: {
@@ -263,7 +251,6 @@ module.exports = function (grunt) {
   grunt.initConfig(gruntConfig);
 
   grunt.loadNpmTasks('@lodder/grunt-postcss');
-  grunt.loadNpmTasks('grunt-cssnano');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -284,7 +271,6 @@ module.exports = function (grunt) {
     'concat:css_libs',
     'concat:css_general',
     'postcss',
-    'cssnano',
     'pug',
     'browserify:babelify',
     'concat:npm_libs',
@@ -296,60 +282,17 @@ module.exports = function (grunt) {
     buildSettings.push('copy:pug_php');
   }
   grunt.registerTask('build', buildSettings);
-
   grunt.registerTask('serve', ['connect:server', 'watch']);
 
-  //
-  // Frontend tasking
-  //
-  grunt.registerTask('build_front', [
-    'clean:css',
-    'clean:js',
+  grunt.registerTask('build_dev', [
+    'clean:dev',
     'sass',
     'concat:css_libs',
     'concat:css_general',
-    'postcss',
-    'cssnano',
+    'pug',
     'browserify:babelify',
     'concat:npm_libs',
-    'concat:js_basic',
     'concat:js_general',
     'copy:scripts',
   ]);
-  grunt.registerTask('build_style', [
-    'clean:css',
-    'sass',
-    'concat:css_libs',
-    'concat:css_general',
-    'postcss',
-  ]);
-  grunt.registerTask('build_script', [
-    'clean:js',
-    'browserify:babelify',
-    'concat:npm_libs',
-    'concat:js_basic',
-    'concat:js_general',
-    'copy:scripts',
-  ]);
-
-  //
-  //Html tasking
-  //
-  var htmlSettings = ['clean:prod', 'pug'];
-  if (convertToBlade) {
-    htmlSettings.push('copy:pug_php');
-  }
-  grunt.registerTask('build_html', htmlSettings);
-
-  //
-  //Release tasking
-  //
-  grunt.registerTask('release', ['build', 'clean:prod', 'cssnano', 'uglify']);
-
-  grunt.registerTask('default', ['build', 'watch']);
-  grunt.registerTask('run_adv', ['build_adv', 'watch']);
-  grunt.registerTask('run_front', ['build_front', 'watch']);
-  grunt.registerTask('run_style', ['build_style', 'watch']);
-  grunt.registerTask('run_script', ['build_script', 'watch']);
-  grunt.registerTask('run_html', ['build_html', 'watch']);
 };
