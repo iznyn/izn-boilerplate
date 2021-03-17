@@ -29,6 +29,7 @@ module.exports = function (grunt) {
       views: 'resources/views/',
       styles: 'resources/sass/',
       scripts: 'resources/js/',
+      components: 'resources/components/',
       assets: 'resources/',
       public: 'public/',
       pug_cwd: 'resources/pug/',
@@ -53,6 +54,13 @@ module.exports = function (grunt) {
         },
         src: ['<%= meta.scripts %>src/*.js'],
         dest: '<%= meta.scripts %>dist/main.js',
+      },
+      components: {
+        options: {
+          transform: [['babelify', { presets: ['@babel/env'] }]],
+        },
+        src: ['<%= meta.components %>src/*.js'],
+        dest: '<%= meta.components %>dist/elements.js',
       },
       general: {
         src: ['<%= meta.scripts %>src/*.js'],
@@ -98,6 +106,7 @@ module.exports = function (grunt) {
       },
       js_general: {
         src: [
+          '<%= meta.components %>dist/elements.js',
           '<%= meta.scripts %>dist/libs.js',
           '<%= meta.scripts %>vendors/*.js',
           '<%= meta.scripts %>dist/main.js',
@@ -212,6 +221,7 @@ module.exports = function (grunt) {
         //tasks: ['browserify:babelify','concat:npm_libs','concat:js_general','copy:scripts','uglify']
         tasks: [
           'browserify:babelify',
+          'browserify:components',
           'concat:npm_libs',
           'concat:js_general',
           'copy:scripts',
@@ -273,6 +283,7 @@ module.exports = function (grunt) {
     'postcss',
     'pug',
     'browserify:babelify',
+    'browserify:components',
     'concat:npm_libs',
     'concat:js_general',
     'copy:scripts',
@@ -291,6 +302,7 @@ module.exports = function (grunt) {
     'concat:css_general',
     'pug',
     'browserify:babelify',
+    'browserify:components',
     'concat:npm_libs',
     'concat:js_general',
     'copy:scripts',
