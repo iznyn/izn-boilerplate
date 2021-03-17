@@ -1,5 +1,13 @@
 {
-  "private": true,
+  "name": "izn-boilerplate",
+  "description": "Basic web development boilerplate",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "M Arif Mahthunisnaini",
+    "url": "http://iznyn.github.io/"
+  },
+  "repository": "iznyn/izn-boilerplate",
   "scripts": {
     "start": "npm run serve",
     "dev": "grunt watch",
