@@ -21,7 +21,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-decorators": "^7.13.5",
     "@babel/preset-env": "^7.13.10",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
     "@lodder/grunt-postcss": "^3.0.0",
     "autoprefixer": "^10.2.5",
     "babel-eslint": "^10.1.0",
