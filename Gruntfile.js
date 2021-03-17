@@ -1,21 +1,17 @@
-module.exports = function(grunt)
-{
+module.exports = function (grunt) {
   'use strict';
 
-  var script_lib = [
-  ];
+  var script_lib = [];
 
-  var style_lib = [
-  ];
+  var style_lib = [];
 
   var convertToBlade = false;
 
   //Get pug destination
-  if ( convertToBlade ) {
+  if (convertToBlade) {
     var pugDest = 'resources/html/dist/';
-    var pugTask = ['pug','copy:pug_php'];
-  }
-  else {
+    var pugTask = ['pug', 'copy:pug_php'];
+  } else {
     var pugDest = 'public/';
     var pugTask = ['pug'];
   }
@@ -28,7 +24,8 @@ module.exports = function(grunt)
     pkg: grunt.file.readJSON('package.json'),
 
     meta: {
-      banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - built on <%= grunt.template.today("dd-mm-yyyy") %> */\n',
+      banner:
+        '/*! <%= pkg.name %> - v<%= pkg.version %> - built on <%= grunt.template.today("dd-mm-yyyy") %> */\n',
       views: 'resources/views/',
       styles: 'resources/sass/',
       scripts: 'resources/js/',
@@ -38,88 +35,82 @@ module.exports = function(grunt)
       pug_cwd_public: 'resources/pug/public/',
       pug_files: '**/*.pug',
       pug_dest: pugDest,
-      node_modules: './node_modules/'
+      node_modules: './node_modules/',
     },
 
     browserify: {
       typescripts: {
         options: {
           plugin: ['tsify'],
-          sourceType: 'module'
+          sourceType: 'module',
         },
-        src: [
-          '<%= meta.scripts %>ts/*.ts'
-        ],
-        dest: '<%= meta.scripts %>dist/ts.js'
+        src: ['<%= meta.scripts %>ts/*.ts'],
+        dest: '<%= meta.scripts %>dist/ts.js',
       },
       babelify: {
         options: {
-          transform: [["babelify", { "presets": ["@babel/env"] }]]
+          transform: [['babelify', { presets: ['@babel/env'] }]],
         },
-        src: [
-          '<%= meta.scripts %>src/*.js'
-        ],
-        dest: '<%= meta.scripts %>dist/main.js'
+        src: ['<%= meta.scripts %>src/*.js'],
+        dest: '<%= meta.scripts %>dist/main.js',
       },
       general: {
-        src: [
-          '<%= meta.scripts %>src/*.js'
-        ],
-        dest: '<%= meta.scripts %>dist/main.js'
-      }
+        src: ['<%= meta.scripts %>src/*.js'],
+        dest: '<%= meta.scripts %>dist/main.js',
+      },
     },
 
     babel: {
-  		options: {
-  			sourceMap: true,
-  			presets: ['@babel/env']
-  		},
-  		dist: {
-  			files: {
-  				'<%= meta.scripts %>dist/main.js': '<%= meta.scripts %>src/main.js'
-  			}
-  		}
-  	},
+      options: {
+        sourceMap: true,
+        presets: ['@babel/env'],
+      },
+      dist: {
+        files: {
+          '<%= meta.scripts %>dist/main.js': '<%= meta.scripts %>src/main.js',
+        },
+      },
+    },
 
     concat: {
       css_libs: {
-          src: style_lib,
-          dest: '<%= meta.styles %>dist/libs.css',
+        src: style_lib,
+        dest: '<%= meta.styles %>dist/libs.css',
       },
       css_general: {
-          src: [
-              '<%= meta.styles %>dist/libs.css',
-              '<%= meta.styles %>vendors/*.css',
-              '<%= meta.styles %>dist/styles.css'
-          ],
-          dest: '<%= meta.public %>css/styles.css',
+        src: [
+          '<%= meta.styles %>dist/libs.css',
+          '<%= meta.styles %>vendors/*.css',
+          '<%= meta.styles %>dist/styles.css',
+        ],
+        dest: '<%= meta.public %>css/styles.css',
       },
       npm_libs: {
-          src: script_lib,
-          dest: '<%= meta.scripts %>dist/libs.js',
+        src: script_lib,
+        dest: '<%= meta.scripts %>dist/libs.js',
       },
       js_basic: {
         src: [
           '<%= meta.scripts %>vendors/*.js',
-          '<%= meta.scripts %>src/scripts.js'
+          '<%= meta.scripts %>src/scripts.js',
         ],
-        dest: '<%= meta.scripts %>dist/general.js'
+        dest: '<%= meta.scripts %>dist/general.js',
       },
       js_general: {
         src: [
           '<%= meta.scripts %>dist/libs.js',
           '<%= meta.scripts %>vendors/*.js',
-          '<%= meta.scripts %>dist/main.js'
+          '<%= meta.scripts %>dist/main.js',
         ],
         dest: '<%= meta.public %>js/scripts.js',
-      }
+      },
     },
 
     uglify: {
       general: {
         src: '<%= meta.public %>js/scripts.js',
-        dest: '<%= meta.public %>js/scripts.min.js'
-      }
+        dest: '<%= meta.public %>js/scripts.min.js',
+      },
     },
 
     postcss: {
@@ -128,13 +119,13 @@ module.exports = function(grunt)
           require('postcss-short')(),
           require('postcss-fontpath')(),
           require('autoprefixer')({
-            overrideBrowserslist: ['last 2 versions', 'ie 6-8', 'Firefox > 20']
-          })
-        ]
+            overrideBrowserslist: ['last 2 versions', 'ie 6-8', 'Firefox > 20'],
+          }),
+        ],
       },
       dist: {
         src: '<%= meta.public %>css/*.css',
-      }
+      },
     },
 
     sass: {
@@ -143,28 +134,31 @@ module.exports = function(grunt)
           implementation: sass,
           compass: true,
           sourcemap: 'none',
-          style: 'expended'
+          style: 'expended',
         },
-        files: [{
-          expand: true,
-          cwd: '<%= meta.styles %>src',
-          src: ['*.sass', '*.scss'],
-          dest: '<%= meta.styles %>dist',
-          ext: '.css'
-        }]
-      }
+        files: [
+          {
+            expand: true,
+            cwd: '<%= meta.styles %>src',
+            src: ['*.sass', '*.scss'],
+            dest: '<%= meta.styles %>dist',
+            ext: '.css',
+          },
+        ],
+      },
     },
 
     cssnano: {
       options: {
         sourcemap: false,
-        zindex: false
+        zindex: false,
       },
       dist: {
         files: {
-          '<%= meta.public %>css/styles.min.css': '<%= meta.public %>css/styles.css'
-        }
-      }
+          '<%= meta.public %>css/styles.min.css':
+            '<%= meta.public %>css/styles.css',
+        },
+      },
     },
 
     pug: {
@@ -172,39 +166,45 @@ module.exports = function(grunt)
         options: {
           pretty: true,
           data: {
-            debug: false
-          }
+            debug: false,
+          },
         },
-        files: [{
-          expand: true,
-          cwd: '<%= meta.pug_cwd_public %>',
-          src: ['<%= meta.pug_files %>'],
-          dest: '<%= meta.pug_dest %>',
-          ext: '.html'
-        }]
-      }
+        files: [
+          {
+            expand: true,
+            cwd: '<%= meta.pug_cwd_public %>',
+            src: ['<%= meta.pug_files %>'],
+            dest: '<%= meta.pug_dest %>',
+            ext: '.html',
+          },
+        ],
+      },
     },
 
     copy: {
       scripts: {
-        files: [{
-          expand: true,
-          cwd: '<%= meta.scripts %>single/',
-          src: '**',
-          dest: '<%= meta.public %>js/'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: '<%= meta.scripts %>single/',
+            src: '**',
+            dest: '<%= meta.public %>js/',
+          },
+        ],
       },
       pug_php: {
-        files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= meta.pug_dest %>',
-          src: ['**/*.html'],
-          dest: '<%= meta.views %>',
-          rename: function(dest, src) {
-             return dest + src.replace(/\.html$/, ".blade.php");
-          }
-        }]
+        files: [
+          {
+            expand: true,
+            dot: true,
+            cwd: '<%= meta.pug_dest %>',
+            src: ['**/*.html'],
+            dest: '<%= meta.views %>',
+            rename: function (dest, src) {
+              return dest + src.replace(/\.html$/, '.blade.php');
+            },
+          },
+        ],
       },
     },
 
@@ -212,48 +212,45 @@ module.exports = function(grunt)
       options: {
         spawn: false,
         interrupt: false,
-        livereload: true
+        livereload: true,
       },
       style: {
-        files: [
-          '<%= meta.styles %>/**/*.sass',
-          '<%= meta.styles %>/**/*.scss'
-        ],
+        files: ['<%= meta.styles %>/**/*.sass', '<%= meta.styles %>/**/*.scss'],
         //tasks: ['sass','concat:css_libs','concat:css_general','postcss','cssnano']
-        tasks: ['sass','concat:css_libs','concat:css_general']
+        tasks: ['sass', 'concat:css_libs', 'concat:css_general'],
       },
       script: {
-        files: [
-          '<%= meta.scripts %>/**/*.js'
-        ],
+        files: ['<%= meta.scripts %>/**/*.js'],
         //tasks: ['browserify:babelify','concat:npm_libs','concat:js_general','copy:scripts','uglify']
-        tasks: ['browserify:babelify','concat:npm_libs','concat:js_general','copy:scripts']
+        tasks: [
+          'browserify:babelify',
+          'concat:npm_libs',
+          'concat:js_general',
+          'copy:scripts',
+        ],
       },
       pug: {
-        files: [
-          '<%= meta.pug_cwd %>/**/*.pug'
-        ],
-        tasks: pugTask
-      }
+        files: ['<%= meta.pug_cwd %>/**/*.pug'],
+        tasks: pugTask,
+      },
     },
 
     clean: {
       options: {
-        force: true
+        force: true,
       },
       dev: [
         '<%= meta.public %>css',
         '<%= meta.public %>js',
-        '<%= meta.public %>*.html'
+        '<%= meta.public %>*.html',
       ],
       css: ['<%= meta.public %>css'],
       js: ['<%= meta.public %>js'],
-      prod: ['<%= meta.public %>*.html']
-    }
-
+      prod: ['<%= meta.public %>*.html'],
+    },
   };
 
-  grunt.initConfig( gruntConfig );
+  grunt.initConfig(gruntConfig);
 
   grunt.loadNpmTasks('@lodder/grunt-postcss');
   grunt.loadNpmTasks('grunt-cssnano');
@@ -282,10 +279,10 @@ module.exports = function(grunt)
     'concat:npm_libs',
     'concat:js_general',
     'copy:scripts',
-    'uglify'
+    'uglify',
   ];
-  if ( convertToBlade ) {
-    buildSettings.push( 'copy:pug_php' );
+  if (convertToBlade) {
+    buildSettings.push('copy:pug_php');
   }
   grunt.registerTask('build', buildSettings);
 
@@ -304,14 +301,14 @@ module.exports = function(grunt)
     'concat:npm_libs',
     'concat:js_basic',
     'concat:js_general',
-    'copy:scripts'
+    'copy:scripts',
   ]);
   grunt.registerTask('build_style', [
     'clean:css',
     'sass',
     'concat:css_libs',
     'concat:css_general',
-    'postcss'
+    'postcss',
   ]);
   grunt.registerTask('build_script', [
     'clean:js',
@@ -319,35 +316,27 @@ module.exports = function(grunt)
     'concat:npm_libs',
     'concat:js_basic',
     'concat:js_general',
-    'copy:scripts'
+    'copy:scripts',
   ]);
 
   //
   //Html tasking
   //
-  var htmlSettings = [
-    'clean:prod',
-    'pug'
-  ];
-  if ( convertToBlade ) {
-    htmlSettings.push( 'copy:pug_php' );
+  var htmlSettings = ['clean:prod', 'pug'];
+  if (convertToBlade) {
+    htmlSettings.push('copy:pug_php');
   }
-  grunt.registerTask('build_html', htmlSettings );
+  grunt.registerTask('build_html', htmlSettings);
 
   //
   //Release tasking
   //
-  grunt.registerTask('release', [
-    'build',
-    'clean:prod',
-    'cssnano',
-    'uglify'
-  ]);
+  grunt.registerTask('release', ['build', 'clean:prod', 'cssnano', 'uglify']);
 
-  grunt.registerTask('default',    ['build', 'watch']);
-  grunt.registerTask('run_adv',    ['build_adv', 'watch']);
-  grunt.registerTask('run_front',  ['build_front', 'watch']);
-  grunt.registerTask('run_style',  ['build_style', 'watch']);
+  grunt.registerTask('default', ['build', 'watch']);
+  grunt.registerTask('run_adv', ['build_adv', 'watch']);
+  grunt.registerTask('run_front', ['build_front', 'watch']);
+  grunt.registerTask('run_style', ['build_style', 'watch']);
   grunt.registerTask('run_script', ['build_script', 'watch']);
-  grunt.registerTask('run_html',   ['build_html', 'watch']);
+  grunt.registerTask('run_html', ['build_html', 'watch']);
 };
