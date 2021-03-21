@@ -1,0 +1,11 @@
+// .button--primary
+
+.button--primary {
+  color: red;
+  text-decoration: none;
+  font-size: var(--btn-size-md, 10rem);
+
+  &:hover {
+    color: lighten(red, 40);
+  }
+}

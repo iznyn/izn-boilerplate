@@ -1,8 +1,7 @@
 // components/example.stories.js
-
-import startCase from 'lodash/startCase';
-import ButtonBasic from './resources/components/Button/Basic/index.pug';
-import './resources/components/Button/Basic/styles.sass';
+import ButtonPrimary from '../resources/components/Button/Primary/index.pug';
+import '../resources/components/Button/styles.scss';
+import '../resources/components/Button/Primary/styles.scss';
 
 export default {
   title: 'Button',
@@ -10,7 +9,7 @@ export default {
 
 export const Basic = () => {
   // setup properties
-  const props = { label: 'This is a Button' };
+  const props = { label: 'This is a Button', size: 'lg' };
 
-  return ButtonBasic({ props, startCase });
+  return ButtonPrimary({ props });
 };

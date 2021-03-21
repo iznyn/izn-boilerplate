@@ -1,0 +1,14 @@
+//- components/Button/Primary/index.pug
+
+include ../Mixins
+
+mixin ButtonPrimary (label, url = '', props = {})
+  - var classSize = props.size ? 'button--' + props.size : 'button--md';
+  - var classes = ['button', classSize]
+
+  if (props.tag && props.tag === 'button')
+    button(class=classes type=props.isSubmit ? 'submit' : 'button')
+      +ButtonContent(label, props)
+  else
+    a(class=classes href="#")
+      +ButtonContent(label, props)

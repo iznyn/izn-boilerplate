@@ -80,11 +80,12 @@ module.exports = function (grunt) {
       },
       css_general: {
         src: [
+          '<%= meta.assets %>tailwind.css',
           '<%= meta.styles %>dist/libs.css',
           '<%= meta.styles %>vendors/*.css',
           '<%= meta.styles %>dist/styles.css',
         ],
-        dest: '<%= meta.public %>css/styles.css',
+        dest: '<%= meta.styles %>dist/styles.css',
       },
       npm_libs: {
         src: script_lib,
@@ -115,18 +116,19 @@ module.exports = function (grunt) {
     },
 
     postcss: {
-      options: {
-        processors: [
-          require('postcss-short')(),
-          require('postcss-fontpath')(),
-          require('autoprefixer')({
-            overrideBrowserslist: ['last 2 versions', 'ie 6-8', 'Firefox > 20'],
-          }),
-          require('cssnano')(),
-        ],
+      dev: {
+        options: {
+          processors: [require('tailwindcss')(), require('autoprefixer')()],
+        },
+        src: '<%= meta.styles %>dist/styles.css',
+        dest: '<%= meta.public %>css/styles.css',
       },
-      dist: {
-        src: '<%= meta.public %>css/*.css',
+      prod: {
+        options: {
+          processors: [require('cssnano')()],
+        },
+        src: '<%= meta.public %>css/styles.css',
+        dest: '<%= meta.public %>css/styles.css',
       },
     },
 
@@ -203,10 +205,13 @@ module.exports = function (grunt) {
         interrupt: false,
         livereload: true,
       },
+      pug: {
+        files: ['<%= meta.assets %>/**/*.pug'],
+        tasks: [...pugTask, 'postcss:dev'],
+      },
       style: {
         files: ['<%= meta.assets %>/**/*.sass', '<%= meta.assets %>/**/*.scss'],
-        //tasks: ['sass','concat:css_libs','concat:css_general','postcss']
-        tasks: ['sass', 'concat:css_libs', 'concat:css_general'],
+        tasks: ['sass', 'concat:css_libs', 'concat:css_general', 'postcss:dev'],
       },
       script: {
         files: ['<%= meta.assets %>/**/*.js'],
@@ -217,10 +222,6 @@ module.exports = function (grunt) {
           'concat:js_general',
           'copy:scripts',
         ],
-      },
-      pug: {
-        files: ['<%= meta.pug_cwd %>/**/*.pug'],
-        tasks: pugTask,
       },
     },
 
@@ -268,11 +269,11 @@ module.exports = function (grunt) {
   //
   var buildSettings = [
     'clean:dev',
+    'pug',
     'sass',
     'concat:css_libs',
     'concat:css_general',
     'postcss',
-    'pug',
     'browserify:babelify',
     'concat:npm_libs',
     'concat:js_general',
@@ -287,10 +288,11 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build_dev', [
     'clean:dev',
+    'pug',
     'sass',
     'concat:css_libs',
     'concat:css_general',
-    'pug',
+    'postcss',
     'browserify:babelify',
     'concat:npm_libs',
     'concat:js_general',

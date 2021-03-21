@@ -1,0 +1,16 @@
+//- components/Button/Mixin.pug
+
+mixin ButtonContent (label, props = {})
+  .button__inner
+    .button__content
+      .button__label= label
+      +ButtonIcon(props)
+
+
+mixin ButtonIcon (props = {})
+  if props.icon && props.iconImage
+    span.button__icon.button__icon--image
+      img(src=props.icon)
+  else if props.icon
+    span.button__icon
+      i(class=props.icon)
