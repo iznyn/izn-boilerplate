@@ -8,7 +8,7 @@ const prettierOptions = JSON.parse(
 module.exports = {
   parser: 'babel-eslint',
   extends: ['prettier'],
-  plugins: ['prettier', 'jsx-a11y'],
+  plugins: ['prettier', 'react', 'jsx-a11y'],
   env: {
     jest: true,
     browser: true,
@@ -63,6 +63,17 @@ module.exports = {
     'no-unused-vars': 2,
     'no-use-before-define': 0,
     'prefer-template': 2,
+    'react/destructuring-assignment': 0,
+    'react/jsx-closing-tag-location': 0,
+    'react/forbid-prop-types': 0,
+    'react/jsx-first-prop-new-line': [2, 'multiline'],
+    'react/jsx-filename-extension': 0,
+    'react/jsx-no-target-blank': 0,
+    'react/jsx-uses-vars': 2,
+    'react/require-default-props': 0,
+    'react/require-extension': 0,
+    'react/self-closing-comp': 0,
+    'react/sort-comp': 0,
   },
   // settings: {
   //   'import/resolver': {

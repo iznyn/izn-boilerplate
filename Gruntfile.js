@@ -30,6 +30,7 @@ module.exports = function (grunt) {
       styles: 'resources/sass/',
       scripts: 'resources/js/',
       assets: 'resources/',
+      components: 'resources/components/',
       public: 'public/',
       pug_cwd: 'resources/pug/',
       pug_cwd_public: 'resources/pug/public/',
@@ -203,12 +204,12 @@ module.exports = function (grunt) {
         livereload: true,
       },
       style: {
-        files: ['<%= meta.styles %>/**/*.sass', '<%= meta.styles %>/**/*.scss'],
+        files: ['<%= meta.assets %>/**/*.sass', '<%= meta.assets %>/**/*.scss'],
         //tasks: ['sass','concat:css_libs','concat:css_general','postcss']
         tasks: ['sass', 'concat:css_libs', 'concat:css_general'],
       },
       script: {
-        files: ['<%= meta.scripts %>/**/*.js'],
+        files: ['<%= meta.assets %>/**/*.js'],
         //tasks: ['browserify:babelify','concat:npm_libs','concat:js_general','copy:scripts','uglify']
         tasks: [
           'browserify:babelify',
