@@ -57,10 +57,10 @@ module.exports = function (grunt) {
       },
       components: {
         options: {
-          transform: [['babelify', { presets: ['@babel/env'] }]],
+          transform: [['babelify']],
         },
         src: ['<%= meta.components %>src/*.js'],
-        dest: '<%= meta.components %>dist/elements.js',
+        dest: '<%= meta.public %>js/elements.js',
       },
       general: {
         src: ['<%= meta.scripts %>src/*.js'],
@@ -106,7 +106,6 @@ module.exports = function (grunt) {
       },
       js_general: {
         src: [
-          '<%= meta.components %>dist/elements.js',
           '<%= meta.scripts %>dist/libs.js',
           '<%= meta.scripts %>vendors/*.js',
           '<%= meta.scripts %>dist/main.js',
