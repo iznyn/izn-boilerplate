@@ -1,0 +1,72 @@
+//- 6-skeletons/grid
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  align-items: inherit;
+  flex-wrap: wrap;
+
+  //- Col 2
+  &--col-2 {
+    margin: 0 -1rem;
+
+    > div {
+      width: 50%;
+      padding: 0 1rem;
+
+      @media (max-width: 480px) {
+        width: 100%;
+      }
+    }
+  }
+
+  //- Col 3
+  &--col-3 {
+    margin: 0 -1rem;
+
+    > div {
+      width: 33.33333333%;
+      padding: 0 1rem;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
+  }
+
+  //- Col 4
+  &--col-4 {
+    margin: 0 -0.8rem;
+
+    > div {
+      width: 25%;
+      padding: 0 0.8rem;
+
+      @media (max-width: 992px) {
+        width: 50%;
+      }
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
+  }
+
+  //- Col 5
+  &--col-5 {
+    margin: 0 -0.8rem;
+
+    > div {
+      width: 20%;
+      padding: 0 0.8rem;
+
+      @media (max-width: 992px) {
+        width: 33.333333%;
+      }
+
+      @media (max-width: 768px) {
+        width: 50%;
+      }
+    }
+  }
+}

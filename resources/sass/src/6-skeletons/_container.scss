@@ -1,0 +1,241 @@
+//- 6-skeletons/container
+
+$spaceMobile: 20px;
+$spaceFull: 40px;
+$spaceXl: 60px;
+$spaceLg: 80px;
+$spaceMd: 140px;
+$spaceSm: 240px;
+$spaceXs: 280px;
+$maxWidthXl: 1900px;
+$maxWidthLg: 1600px;
+$maxWidthMd: 1400px;
+$maxWidthSm: 1200px;
+$maxWidthXs: 990px;
+
+.container {
+  margin: '0 auto';
+  box-sizing: content-box;
+  padding: 0 $spaceMd;
+  max-width: $maxWidthMd;
+
+  // < 1300px
+  @media (max-width: 1300px) {
+    padding: 0 $spaceFull;
+  }
+
+  // < 580px
+  @media (max-width: 580px) {
+    padding: 0 $spaceMobile;
+  }
+
+  &--full {
+    width: 100%;
+    padding: 0 $spaceFull;
+    max-width: auto;
+  }
+
+  &--xl {
+    padding: 0 $spaceXl;
+    max-width: $maxWidthXl;
+
+    // < 1300px
+    @media (max-width: 1300px) {
+      padding: 0 $spaceFull;
+    }
+
+    // < 580px
+    @media (max-width: 580px) {
+      padding: 0 $spaceMobile;
+    }
+  }
+
+  &--lg {
+    padding: 0 $spaceLg;
+    max-width: $maxWidthLg;
+
+    // < 1300px
+    @media (max-width: 1300px) {
+      padding: 0 $spaceFull;
+    }
+
+    // < 580px
+    @media (max-width: 580px) {
+      padding: 0 $spaceMobile;
+    }
+  }
+
+  &--sm {
+    padding: 0 $spaceSm;
+    max-width: $maxWidthSm;
+
+    // < 1300px
+    @media (max-width: 1300px) {
+      padding: 0 $spaceFull;
+    }
+
+    // < 580px
+    @media (max-width: 580px) {
+      padding: 0 $spaceMobile;
+    }
+  }
+
+  &--xs {
+    padding: 0 $spaceXs;
+    max-width: $maxWidthXs;
+
+    // < 1300px
+    @media (max-width: 1300px) {
+      padding: 0 $spaceFull;
+    }
+
+    // < 580px
+    @media (max-width: 580px) {
+      padding: 0 $spaceMobile;
+    }
+  }
+
+  // Left
+  &__left {
+    box-sizing: content-box;
+    padding-left: $spaceMd;
+
+    // < 1300px
+    @media (max-width: 1300px) {
+      padding-left: $spaceFull;
+    }
+
+    // < 580px
+    @media (max-width: 580px) {
+      padding-left: $spaceMobile;
+    }
+
+    &.layout--xl {
+      padding-left: $spaceXl;
+
+      // < 1300px
+      @media (max-width: 1300px) {
+        padding-left: $spaceFull;
+      }
+
+      // < 580px
+      @media (max-width: 580px) {
+        padding-left: $spaceMobile;
+      }
+    }
+
+    &.layout--lg {
+      padding-left: $spaceLg;
+
+      // < 1300px
+      @media (max-width: 1300px) {
+        padding-left: $spaceFull;
+      }
+
+      // < 580px
+      @media (max-width: 580px) {
+        padding-left: $spaceMobile;
+      }
+    }
+
+    &.layout--sm {
+      padding-left: $spaceSm;
+
+      // < 1300px
+      @media (max-width: 1300px) {
+        padding-left: $spaceFull;
+      }
+
+      // < 580px
+      @media (max-width: 580px) {
+        padding-left: $spaceMobile;
+      }
+    }
+
+    &.layout--xs {
+      padding-left: $spaceXs;
+
+      // < 1300px
+      @media (max-width: 1300px) {
+        padding-left: $spaceFull;
+      }
+
+      // < 580px
+      @media (max-width: 580px) {
+        padding-left: $spaceMobile;
+      }
+    }
+  }
+
+  // Right
+  &__right {
+    box-sizing: content-box;
+    padding-right: $spaceMd;
+
+    // < 1300px
+    @media (max-width: 1300px) {
+      padding-right: $spaceFull;
+    }
+
+    // < 580px
+    @media (max-width: 580px) {
+      padding-right: $spaceMobile;
+    }
+
+    &.layout--xl {
+      padding-right: $spaceXl;
+
+      // < 1300px
+      @media (max-width: 1300px) {
+        padding-right: $spaceFull;
+      }
+
+      // < 580px
+      @media (max-width: 580px) {
+        padding-right: $spaceMobile;
+      }
+    }
+
+    &.layout--lg {
+      padding-right: $spaceLg;
+
+      // < 1300px
+      @media (max-width: 1300px) {
+        padding-right: $spaceFull;
+      }
+
+      // < 580px
+      @media (max-width: 580px) {
+        padding-right: $spaceMobile;
+      }
+    }
+
+    &.layout--sm {
+      padding-right: $spaceSm;
+
+      // < 1300px
+      @media (max-width: 1300px) {
+        padding-right: $spaceFull;
+      }
+
+      // < 580px
+      @media (max-width: 580px) {
+        padding-right: $spaceMobile;
+      }
+    }
+
+    &.layout--xs {
+      padding-right: $spaceXs;
+
+      // < 1300px
+      @media (max-width: 1300px) {
+        padding-right: $spaceFull;
+      }
+
+      // < 580px
+      @media (max-width: 580px) {
+        padding-right: $spaceMobile;
+      }
+    }
+  }
+}

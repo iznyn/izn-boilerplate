@@ -1,0 +1,14 @@
+//- 5-elements/link
+
+a {
+  outline: none;
+  color: $color-link;
+
+  &:hover {
+    color: darken($color-link, 10%);
+  }
+
+  &:visited {
+    color: lighten($color-link, 20%);
+  }
+}

@@ -1,20 +1,38 @@
+//
+// A. Import libraries
+//
+
 //Importing compass mixins
 @import "../loader/compass"
-//Importing iznlibs mixins
-@import "../libs/mixins/mixins"
 //Importing bootstrap core
 @import "../loader/bootstrap-core"
-
 //Importing font awesome
 // @import "../loader/fontawesome"
 
-// Import main style
-@import "includes/fonts"
-@import "includes/variables"
-@import "mixins/mixins"
-@import "components/index"
-@import "includes/general"
-@import "includes/header"
-@import "includes/footer"
+//
+// B. Import main styles
+//
 
-@import "includes/home"
+// 1. Settings
+@import "1-settings/import"
+
+// 2. design tokens
+@import "2-design-tokens/import"
+
+// 3. tools
+@import "3-tools/import"
+
+// 4. generic
+@import "4-generic/import"
+
+// 5. elements
+@import "5-elements/import"
+
+// 6. skeletons
+@import "6-skeletons/import"
+
+// 7. components
+@import "7-components/import"
+
+// 8. utilities
+@import "8-utilities/import"
