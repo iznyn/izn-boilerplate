@@ -1,0 +1,10 @@
+//-
+//- Title mixin
+mixin title(title, align = 'left', tagName = 'h2')
+  #{tagName}(class='title title--' + align)
+    span= title
+
+//-
+//- Title center mixin
+mixin title__center(title, tagName = 'h2')
+  +title(title, 'center', tagName)

@@ -1,0 +1,50 @@
+//-
+//- Card info mixin
+mixin card__info(title, category, meta = false, url = false, metaIcon = false, date = false)
+  .card__info
+    .card__info__inner
+      .card__info__top
+        .card__category
+          p= category
+        .card__title
+          if url
+            h3
+              a(href=url)= title
+          else
+            h3= title
+
+      if meta
+        .card__meta
+          if metaIcon
+            i
+              +icon__time()
+          p= meta
+          if date
+            p.date= date
+
+//-
+//- Card thumb mixin
+mixin card__thumb(image, isVideo = false)
+  .card__thumb
+    .card__thumb__image
+      img(src=image alt="")
+
+    if isVideo
+      .card__action.card__action__video
+        button(type="button")
+          i
+            +icon__play()
+
+//-
+//- Card content mixin
+mixin card__content(title, category, image = false, meta = false, url = false, metaIcon = false, isVideo = false)
+  .card__inner
+    if image
+      +card__thumb(image, isVideo)
+    +card__info(title, category, meta, url, metaIcon)
+
+//-
+//- Card mixin
+mixin card(title, category, image = false, meta = false, url = false, infoPos = 'right', size = 'md')
+  div(class='card card--' + size + ' card--info-' + infoPos)
+    +card__content(title, category, image, meta, url)

@@ -43,7 +43,7 @@
 @mixin fx-d-c() {
   @include flex-direction(column);
 }
-@mixin fx-d-rc() {
+@mixin fx-d-cr() {
   @include flex-direction(column-reverse);
 }
 

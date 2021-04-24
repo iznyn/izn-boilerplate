@@ -1,10 +1,10 @@
 //-
 //- Form field
 mixin form__field( label )
-  .form--field&attributes(attributes)
+  .form__field&attributes(attributes)
     if label
-      .form--label
+      .form__label
         label=label
-    .form--input
+    .form__input
       if block
         block

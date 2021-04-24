@@ -1,17 +1,13 @@
 //-
 //- Button mixin
-mixin button( label, type, icon )
-  button(type="button", class="button button--"+type)&attributes(attributes)
-    span.button--inner
-      span.button--label=label
-      if icon
+mixin button__content( label, type, icon )
+  span.button__inner
+    span.button__label= label
+    if icon
+      span.button__icon
         i(class="fa fa-"+icon)
 
-//-
-//- Button link
-mixin button__link( label, url, type, icon )
-  a(href=url, class="button button--"+type)&attributes(attributes)
-    span.button--inner
-      span.button--label=label
-      if icon
-        i(class="fa fa-"+icon)
+//- Button mixin
+mixin button( label, type = 'primary', variant = 'default', icon = false )
+  button(type="button", class="button button--"+type)&attributes(attributes)
+    +button__content(label, type, icon)

@@ -1,7 +1,7 @@
 //
 // Main JS
 //
-import HomeLib from '../includes/Home';
+import HomeLib from './includes/Home';
 
 (function ($) {
   'use strict';

@@ -1,0 +1,28 @@
+//- components/header/index.pug
+
+block vars
+  include ./vars
+
+header(class="header header--"+layout)
+  div(class="header__container "+containerClass)
+    .header__inner
+      .header__main
+        #{titleTag}
+          a(href=homeUrl)
+            img(src=siteLogo alt=siteTitle)
+
+        //- block title after
+        block title_after
+
+      .header__nav
+        .header__nav__main
+          ul
+            li.header__nav__home
+              a(href=homeUrl)
+                span= homeNavLabel
+
+            //- block nav items
+            block nav_items
+
+        //- block nav after
+        block nav_after
