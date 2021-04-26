@@ -1,0 +1,45 @@
+//- 7-components/nav
+
+.nav {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  //- Horizontal
+  &--horizontal {
+    > ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      > li {
+        margin: 0 3rem;
+      }
+    }
+  }
+
+  //- Vertical
+  &--vertical {
+    .nav__title {
+      font-size: $text-sm;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+    > ul {
+      > li {
+        > a {
+          display: block;
+          padding: 1.2rem 0.5rem;
+          font-size: $text-xs;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

@@ -17,7 +17,9 @@
     "lint:css": "stylelint resources/sass/**/*.js",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern public",
     "lint:eslint:fix": "eslint --ignore-path .gitignore --ignore-pattern public --fix",
-    "lint:js": "npm run lint:eslint -- . "
+    "lint:js": "npm run lint:eslint -- . ",
+    "docs-dev": "cross-env process.env.section=docs grunt watch",
+    "docs-build": "cross-env process.env.section=docs grunt build"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
@@ -28,6 +30,7 @@
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
     "concurrently": "^6.0.0",
+    "cross-env": "^7.0.3",
     "cssnano": "^4.1.10",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
