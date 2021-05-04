@@ -1,0 +1,38 @@
+//- Include all mixins
+include ../../../pug/mixins/mixins
+
+block vars
+  - var pageTitle     = 'Izn Boilerplate Documentation';
+  - var pageName      = 'home';
+  - var bodyClass     = 'home';
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    //[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><![endif]
+    title=pageTitle
+    meta(name="description", content=pageTitle)
+    meta(name="keywords", content="")
+    meta(name="viewport", content="width=device-width, initial-scale=1, minimal-ui, user-scalable=no")
+    link(rel="icon", href="favicon.png", type="image/x-icon", sizes="16x16")
+
+    //- Additional styles
+    block styles
+
+    link(rel="stylesheet", href="http://localhost:5001/css/styles.css")
+
+    //- Additional scripts
+    block head_scripts
+
+  body(class=bodyClass)
+    //- Block main
+    block main
+
+    //- Additional sctips
+    block footer_scripts
+
+    script(src='http://localhost:5001/js/scripts.js')
+
+    //- Additional sctips
+    block last_scripts

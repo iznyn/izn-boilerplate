@@ -1,0 +1,29 @@
+//-
+//- Loader mixin
+mixin loader(type, divCount = 4)
+  div(class="loader loader--"+type)
+    .loader__spinner
+      - var n = 0;
+      while n < divCount
+        div(data-index=n++)
+
+mixin loader__roller()
+  +loader('roller', 8)
+
+mixin loader__dual-ring()
+  +loader('dual-ring', 0)
+
+mixin loader__ring()
+  +loader('ring')
+
+mixin loader__ellipsis()
+  +loader('ellipsis')
+
+mixin loader__default()
+  +loader('default', 12)
+
+mixin loader__ripple()
+  +loader('ripple', 2)
+
+mixin loader__spinner()
+  +loader('spinner', 12)

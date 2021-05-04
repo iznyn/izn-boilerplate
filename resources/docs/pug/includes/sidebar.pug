@@ -1,0 +1,36 @@
+//- sidebar
+
+.sidebar.layout__sidebar
+  .sidebar__inner
+    .sidebar__top
+      .sidebar__top__icon
+        i.fas.fa-book-dead
+      h1
+        span Izn Boilerplate
+        span Documentations
+
+    .sidebar__main
+      .nav.nav--vertical.nav--with-icon
+        ul
+          li.nav--has-submenu.collapsible
+            a.toggle(href="")
+              span.icon
+                i.fas.fa-chess-king
+              span Header
+              span.nav__toggle
+                i.fas.fa-angle-down
+
+            .nav__submenu.collapsible__content
+              ul
+                li
+                  a(href="") Default
+                li
+                  a(href="") With Submenu
+                li
+                  a(href="") With Mega Menu
+
+          li
+            a(href="")
+              span.icon
+                i.fas.fa-chess-rook
+              span Footer

@@ -1,0 +1,18 @@
+//-
+//- Header view
+//-
+extends ../../../../../pug/components/header/index
+
+block vars
+  include ../../../../../pug/components/header/vars
+  - var siteTitle = 'MySite';
+  - var siteLogo = 'http://localhost:5001/images/logo__main.jpg';
+
+block nav_items
+  li.header__nav__about
+    a(href="about.html")
+      span About
+
+  li.header__nav__contact
+    a(href="contact.html")
+      span Contact

@@ -17,12 +17,22 @@
     width: 33.333333%;
   }
 
+  &--alt {
+    flex-direction: row-reverse;
+  }
+
   &--full {
     display: block;
   }
 
   &--sidebar-left {
     flex-direction: row-reverse;
+  }
+
+  &--sidebar-xs {
+    .layout__sidebar {
+      width: 20%;
+    }
   }
 
   &--sidebar-sm {

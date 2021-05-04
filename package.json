@@ -13,13 +13,14 @@
     "dev": "grunt watch",
     "build": "grunt build",
     "serve": "grunt serve",
+    "docs-dev": "cross-env process.env.section=docs grunt watch",
+    "docs-serve": "cross-env process.env.section=docs grunt serve",
+    "docs-build": "cross-env process.env.section=docs grunt build",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint resources/sass/**/*.js",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern public",
     "lint:eslint:fix": "eslint --ignore-path .gitignore --ignore-pattern public --fix",
-    "lint:js": "npm run lint:eslint -- . ",
-    "docs-dev": "cross-env process.env.section=docs grunt watch",
-    "docs-build": "cross-env process.env.section=docs grunt build"
+    "lint:js": "npm run lint:eslint -- . "
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
@@ -64,11 +65,10 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "bootstrap-sass": "^3.4.1",
     "compass-mixins": "^0.12.10",
     "imagesloaded": "^4.1.4",
-    "jquery": "^3.6.0",
-    "jquery.transit": "^0.9.12",
-    "lit-element": "^2.4.0"
+    "jquery": "^3.6.0"
   }
 }

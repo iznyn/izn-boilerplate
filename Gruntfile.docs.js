@@ -1,7 +1,12 @@
 module.exports = function (grunt) {
   'use strict';
 
-  var script_lib = [];
+  var script_lib = [
+    // JQuery
+    './node_modules/jquery/dist/jquery.js',
+    // FontAwesome
+    './node_modules/@fortawesome/fontawesome-free/js/all.js',
+  ];
 
   var style_lib = [];
 
@@ -195,12 +200,12 @@ module.exports = function (grunt) {
         livereload: true,
       },
       style: {
-        files: ['<%= meta.styles %>/**/*.sass', '<%= meta.styles %>/**/*.scss'],
+        files: ['<%= meta.assets %>/**/*.sass', '<%= meta.assets %>/**/*.scss'],
         //tasks: ['sass','concat:css_libs','concat:css_general','postcss']
         tasks: ['sass', 'concat:css_libs', 'concat:css_general'],
       },
       script: {
-        files: ['<%= meta.scripts %>/**/*.js'],
+        files: ['<%= meta.assets %>/**/*.js'],
         //tasks: ['browserify:babelify','concat:npm_libs','concat:js_general','copy:scripts','uglify']
         tasks: [
           'browserify:babelify',
@@ -210,7 +215,7 @@ module.exports = function (grunt) {
         ],
       },
       pug: {
-        files: ['<%= meta.pug_cwd %>/**/*.pug'],
+        files: ['<%= meta.assets %>/**/*.pug'],
         tasks: pugTask,
       },
     },
@@ -233,8 +238,8 @@ module.exports = function (grunt) {
       server: {
         options: {
           livereload: true,
-          base: 'public/',
-          port: 5000,
+          base: 'docs/',
+          port: 5001,
         },
       },
     },
