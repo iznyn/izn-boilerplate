@@ -1,0 +1,25 @@
+//- components/preview/index.pug
+
+block vars
+  include ./vars
+
+.preview
+  //- block before
+  block preview_before
+
+  .preview__main
+    each imgUrl in images
+      .preview__item
+        img(src=imgUrl, alt="")
+
+    //- block after main
+    block preview_after_main
+
+  .preview__nav
+    each thumbUrl in navThumbs
+      .preview__nav__item
+        button(type="button")
+          img(src=thumbUrl, alt="")
+
+  //- block after
+  block preview_after

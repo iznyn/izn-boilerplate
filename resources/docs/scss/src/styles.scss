@@ -1,0 +1,39 @@
+//
+// A. Import libraries
+//
+
+//Importing compass mixins
+@import "../../../scss/loader/compass";
+//Importing bootstrap core
+@import "../../../scss/loader/bootstrap-core";
+//Importing font awesome
+// @import "../../../scss/loader/fontawesome";
+
+//
+// B. Import main styles
+//
+
+// 1. Settings
+@import "1-settings/import";
+
+// 2. design tokens
+@import "../../../scss/src/2-design-tokens/import";
+
+// 3. tools
+@import "../../../scss/src/3-tools/import";
+
+// 4. generic
+@import "4-generic/import";
+
+// 5. elements
+@import "../../../scss/src/5-elements/import";
+
+// 6. skeletons
+@import "../../../scss/src/6-skeletons/import";
+
+// 7. components
+@import "../../../scss/src/7-components/import";
+@import "7-components/import";
+
+// 8. utilities
+@import "8-utilities/import";
