@@ -8,7 +8,10 @@ module.exports = function (grunt) {
     './node_modules/@fortawesome/fontawesome-free/js/all.js',
   ];
 
-  var style_lib = [];
+  var style_lib = [
+    // spinkit
+    './node_modules/spinkit/spinkit.css',
+  ];
 
   var convertToBlade = false;
 

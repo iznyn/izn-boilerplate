@@ -2,7 +2,8 @@
 include ../../../pug/mixins/mixins
 
 block vars
-  - var pageTitle     = 'Izn Boilerplate Documentation';
+  - var siteTitle     = 'Izn Boilerplate Documentation';
+  - var pageTitle     = 'Page';
   - var pageName      = 'home';
   - var bodyClass     = 'home';
 
@@ -11,8 +12,8 @@ html(lang="en")
   head
     meta(charset="utf-8")
     //[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><![endif]
-    title=pageTitle
-    meta(name="description", content=pageTitle)
+    title=siteTitle
+    meta(name="description", content=siteTitle)
     meta(name="keywords", content="")
     meta(name="viewport", content="width=device-width, initial-scale=1, minimal-ui, user-scalable=no")
     link(rel="icon", href="favicon.png", type="image/x-icon", sizes="16x16")
@@ -33,10 +34,12 @@ html(lang="en")
       //-
       //- Main content
       //-
-      main.main.layout__main
-        include ./header
+      main.site__main.layout__main
+        //- Header
+        .site__header
+          h1= pageTitle
 
-        .main__content
+        .site__content
           block main
 
         include ./footer

@@ -1,29 +1,44 @@
 //-
 //- Loader mixin
-mixin loader(type, divCount = 4)
-  div(class="loader loader--"+type)
-    .loader__spinner
+mixin loader(type, size = 'md', color = 'muted', divCount = 0, dotClass = 'dot', prefix = 'sk')
+  div(class="loader loader--"+size+" loader--"+color)
+    div(class="loader__icon "+prefix+"-"+type)
       - var n = 0;
       while n < divCount
-        div(data-index=n++)
+        div(class=prefix+"-"+type+"-"+dotClass, data-index=n++)
 
-mixin loader__roller()
-  +loader('roller', 8)
+mixin loader__plane(size = 'md', color = 'muted')
+  +loader('plane', size, color)
 
-mixin loader__dual-ring()
-  +loader('dual-ring', 0)
+mixin loader__chase(size = 'md', color = 'muted')
+  +loader('chase', size, color, 6)
 
-mixin loader__ring()
-  +loader('ring')
+mixin loader__bounce(size = 'md', color = 'muted')
+  +loader('bounce', size, color, 2)
 
-mixin loader__ellipsis()
-  +loader('ellipsis')
+mixin loader__wave(size = 'md', color = 'muted')
+  +loader('wave', size, color, 5, 'rect')
 
-mixin loader__default()
-  +loader('default', 12)
+mixin loader__pulse(size = 'md', color = 'muted')
+  +loader('pulse', size, color)
 
-mixin loader__ripple()
-  +loader('ripple', 2)
+mixin loader__flow(size = 'md', color = 'muted')
+  +loader('flow', size, color, 3)
 
-mixin loader__spinner()
-  +loader('spinner', 12)
+mixin loader__swing(size = 'md', color = 'muted')
+  +loader('swing', size, color, 2)
+
+mixin loader__circle(size = 'md', color = 'muted')
+  +loader('circle', size, color, 12)
+
+mixin loader__circle-fade(size = 'md', color = 'muted')
+  +loader('circle-fade', size, color, 12)
+
+mixin loader__grid(size = 'md', color = 'muted')
+  +loader('grid', size, color, 9, 'cube')
+
+mixin loader__fold(size = 'md', color = 'muted')
+  +loader('fold', size, color, 4, 'cube')
+
+mixin loader__wander(size = 'md', color = 'muted')
+  +loader('wander', size, color, 3, 'cube')

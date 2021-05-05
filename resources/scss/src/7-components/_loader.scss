@@ -1,0 +1,58 @@
+//- 7-components/loader
+
+.loader {
+  --sk-color: #aaaaaa;
+
+  &--xxs {
+    --sk-size: 10px;
+  }
+
+  &--xs {
+    --sk-size: 20px;
+  }
+
+  &--sm {
+    --sk-size: 30px;
+  }
+
+  &--lg {
+    --sk-size: 50px;
+  }
+
+  &--xl {
+    --sk-size: 60px;
+  }
+
+  &--xxl {
+    --sk-size: 80px;
+  }
+
+  // Coloring
+  &--muted {
+    --sk-color: #{$color-muted};
+  }
+  &--gray {
+    --sk-color: #{$color-gray};
+  }
+  &--black {
+    --sk-color: #{$color-black};
+  }
+  &--primary {
+    --sk-color: #{$color-primary};
+  }
+  &--secondary {
+    --sk-color: #{$color-secondary};
+  }
+  &--success {
+    --sk-color: #{$color-success};
+  }
+  &--warning {
+    --sk-color: #{$color-warning};
+  }
+  &--danger {
+    --sk-color: #{$color-danger};
+  }
+  &--info {
+    --sk-color: #{$color-info};
+  }
+}
