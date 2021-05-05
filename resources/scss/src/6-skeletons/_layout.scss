@@ -1,0 +1,55 @@
+//- 6-skeletons/layout
+
+.layout {
+  display: flex;
+  flex-direction: row;
+  margin: 0 -15px;
+
+  > div, > main, > aside {
+    padding: 0 15px;
+  }
+
+  &__main {
+    flex: 1;
+  }
+
+  &__sidebar {
+    width: 33.333333%;
+  }
+
+  &--alt {
+    flex-direction: row-reverse;
+  }
+
+  &--full {
+    display: block;
+  }
+
+  &--sidebar-left {
+    flex-direction: row-reverse;
+  }
+
+  &--sidebar-xs {
+    .layout__sidebar {
+      width: 20%;
+    }
+  }
+
+  &--sidebar-sm {
+    .layout__sidebar {
+      width: 25%;
+    }
+  }
+
+  &--sidebar-lg {
+    .layout__sidebar {
+      width: 40%;
+    }
+  }
+
+  &--sidebar-xl {
+    .layout__sidebar {
+      width: 45%;
+    }
+  }
+}

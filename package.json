@@ -13,6 +13,9 @@
     "dev": "grunt watch",
     "build": "grunt build",
     "serve": "grunt serve",
+    "docs-dev": "cross-env process.env.section=docs grunt watch",
+    "docs-serve": "cross-env process.env.section=docs grunt serve",
+    "docs-build": "cross-env process.env.section=docs grunt build",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint resources/sass/**/*.js",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern public",
@@ -28,6 +31,7 @@
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
     "concurrently": "^6.0.0",
+    "cross-env": "^7.0.3",
     "cssnano": "^4.1.10",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
@@ -61,11 +65,11 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "bootstrap-sass": "^3.4.1",
     "compass-mixins": "^0.12.10",
     "imagesloaded": "^4.1.4",
     "jquery": "^3.6.0",
-    "jquery.transit": "^0.9.12",
-    "lit-element": "^2.4.0"
+    "spinkit": "^2.0.1"
   }
 }

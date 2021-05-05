@@ -1,0 +1,29 @@
+//- 7-components/header/default
+
+.header {
+  position: relative;
+  padding: 10px 0;
+  background-color: #dddddd;
+
+  &__inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__main {
+    h1 {
+      margin: 0;
+    }
+    a {
+      display: block;
+    }
+    img {
+      height: 50px;
+    }
+  }
+
+  &__nav {
+    margin-left: auto;
+  }
+}
