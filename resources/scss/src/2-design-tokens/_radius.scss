@@ -1,0 +1,28 @@
+//- 2-design-tokens/radius
+
+.radius-- {
+  &none {
+    border-radius: none;
+  }
+  &xxs {
+    border-radius: 0.2rem;
+  }
+  &xs {
+    border-radius: 0.4rem;
+  }
+  &sm {
+    border-radius: 0.8rem;
+  }
+  &md {
+    border-radius: 1.2rem;
+  }
+  &lg {
+    border-radius: 2rem;
+  }
+  &xl {
+    border-radius: 3rem;
+  }
+  &xxl {
+    border-radius: 5rem;
+  }
+}
