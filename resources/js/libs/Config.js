@@ -2,6 +2,7 @@
 // Config management
 //
 import 'jquery';
+
 import _ from 'lodash';
 
 class Config {
