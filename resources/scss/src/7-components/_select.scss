@@ -1,0 +1,83 @@
+//- 7-components/select
+
+.select {
+  position: relative;
+  display: inline-block;
+
+  &__selected {
+    button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: transparent;
+      border: 1px solid #{$color-grey};
+      padding: 0.6rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.4s;
+
+      &:hover {
+        // background-color: #{$color-light-grey};
+        border-color: #{$color-dark-grey};
+      }
+    }
+
+    &__icon {
+      margin-left: 3rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__options {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 9;
+    transition: all 0.4s;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #ffffff;
+
+    ul {
+      list-style: none;
+      border: 1px solid #{$color-grey};
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      width: 100%;
+
+      button {
+        display: block;
+        background-color: transparent;
+        border: 0;
+        border-bottom: 1px solid #{$color-light-grey};
+        padding: 1rem 1.2rem;
+        width: 100%;
+        text-align: left;
+
+        &:hover {
+          background-color: #{$color-primary};
+          color: #ffffff;
+        }
+      }
+
+      li {
+        &[data-state="active"] {
+          button {
+            background-color: #{$color-primary};
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+
+  &[data-state="open"] {
+    .select__options {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

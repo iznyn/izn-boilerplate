@@ -1,0 +1,90 @@
+//- 7-components/checkbox
+
+.checkbox {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  &__indicator {
+    width: 2rem;
+    height: 2rem;
+    background-color: #{$color-muted};
+    margin-right: 1.2rem;
+
+    .checkbox input:checked ~ & {
+      background-color: #{$color-primary};
+    }
+    .checkbox:hover input ~ &,
+    .checkbox input:focus input ~ & {
+      background-color: #{$color-muted};
+    }
+    .checkbox:hover input:not([disabled]):checked ~ &,
+    .checkbox input:checked:focus ~ & {
+      background-color: darken($color-primary, 15); 
+    }
+
+    // Hide default browser input
+    .checkbox input:disabled ~ & {
+      background-color: #{$color-light-grey};
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    
+    // Radio
+    .checkbox--radio & {
+      border-radius: 50%;
+    }
+
+    // Icon
+    &:after {
+      content: "";
+      position: absolute;
+      display: none; // Hide check
+
+      .checkbox input:checked ~ & {
+        display: block; // Show check
+      }
+
+      // Checkbox tick
+      .checkbox--check & {
+        left: 0.8rem;
+        top: 0.4rem;
+        width: 0.5rem;
+        height: 1rem;
+        border: solid #{$color-white};
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+
+      // Disabled tick colour
+      .checkbox--check input:disabled ~ & {
+        border-color: #{$color-dark-grey};
+      }
+
+      // Radio button inner circle
+      .checkbox--radio & {
+        left: 0.7rem;
+        top: 0.7rem;
+        height: 0.6rem;
+        width: 0.6rem;
+        border-radius: 50%;
+        background: #{$color-white};
+      }
+
+      // Disabled circle colour
+      .checkbox--radio input:disabled ~ & {
+        background: #{$color-dark-grey};
+      }
+    }
+  }
+}

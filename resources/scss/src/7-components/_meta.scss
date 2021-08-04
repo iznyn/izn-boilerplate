@@ -1,0 +1,30 @@
+//- 7-components/meta
+
+.meta {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 2rem;
+
+  &__icon {
+    margin-right: 1.2rem;
+    color: #{$color-muted};
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__content {
+    font-size: 1.4rem;
+    a {
+      text-decoration: none;
+      color: #{$color-dark-grey};
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

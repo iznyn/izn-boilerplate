@@ -1,0 +1,40 @@
+
+.dropdown {
+  position: relative;
+
+  &__selected {
+    button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: transparent;
+      border: 0;
+      transition: all 0.4s;
+    }
+
+    &__icon {
+      margin-left: 3rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 9;
+    transition: all 0.4s;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &[data-state="open"] {
+    .dropdown__content {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

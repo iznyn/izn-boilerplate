@@ -1,0 +1,54 @@
+//- 7-components/alert
+
+@function set-color($color) {
+  @if (lightness($color) > 70) {
+    @return darken($color, 50);
+  }
+  @else {
+    @return lighten($color, 50);
+  }
+}
+
+.alert {
+  position: relative;
+  transition: all 0.4s;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+
+  &__inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__icon {
+    margin-right: 1rem;
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  //
+  // Coloring
+  &--default {
+    background-color: #{$color-grey};
+    color: #444444;
+  }
+  &--success {
+    background-color: #{$color-success};
+    color: set-color($color-success);
+  }
+  &--warning {
+    background-color: #{$color-warning};
+    color: set-color($color-warning);
+  }
+  &--danger {
+    background-color: #{$color-danger};
+    color: set-color($color-danger);
+  }
+  &--info {
+    background-color: #{$color-info};
+    color: set-color($color-info);
+  }
+}

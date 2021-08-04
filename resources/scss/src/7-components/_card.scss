@@ -1,0 +1,293 @@
+//- 7-components/card
+
+.card {
+  margin-bottom: 3.5rem;
+  position: relative;
+
+  > a {
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  &__inner {
+    box-shadow: 0 0 4px 2px rgba(0,0,0,0.06);
+    background-color: #{$color-white};
+    border-radius: 1rem;
+    width: 100%;
+  }
+
+  .thumbnail__image img {
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  //
+  // Info
+  &__info {
+    padding: 2rem;
+
+    @media (max-width: 480px) {
+      padding-right: 1.5rem;
+    }
+
+    &__inner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  //
+  // Category
+  &__category {
+    margin-bottom: 0.8rem;
+
+    p {
+      margin: 0;
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      line-height: 1em;
+      letter-spacing: 0.2em;
+
+      @media (max-width: 768px) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  //
+  // Title
+  &__title {
+    h3 {
+      margin: 0 0 1.5rem;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.2;
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+
+      @media (max-width: 620px) {
+        font-size: 1.8rem;
+      }
+
+      a {
+        color: #{$color-black};
+      }
+    }
+  }
+
+  //
+  // Content
+  &__content {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #{$color-black}
+  }
+
+  //
+  // Meta
+  &__meta {
+    margin-top: auto;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    @media (max-width: 620px) {
+      margin-top: 2rem;
+    }
+
+    i {
+      margin-right: 1rem;
+    }
+
+    $metaIconSize: 1.8rem;
+    i, svg {
+      width: #{$metaIconSize};
+      height: #{$metaIconSize};
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.2rem;
+      line-height: 1em;
+    }
+  }
+
+  //
+  // Thumb
+  &__thumb {
+    position: relative;
+  }
+
+  //
+  // Action
+  &__action {
+    position: relative;
+    padding-top: 2rem;
+    margin-top: auto;
+  }
+
+  //
+  // Info side
+  &--info-left,
+  &--info-right {
+    .card {
+      &__inner {
+        display: flex;
+        flex-direction: row;
+        align-items: inherit;
+      }
+      &__info {
+        flex: 1;
+      }
+    }
+    .thumbnail {
+      width: 45%;
+    }
+  }
+
+  //
+  // Info right
+  &--info-right {
+    .card {
+      &__info {
+        border-radius: 0 1rem 1rem 0;
+      }
+    }
+    .thumbnail {
+      &__main {
+        img {
+          border-radius: 1rem 0 0 1rem;
+        }
+      }
+    }
+  }
+
+  //
+  // Info left
+  &--info-left {
+    .card {
+      &__inner {
+        flex-direction: row-reverse;
+      }
+      &__info {
+        border-radius: 1rem 0 0 1rem;
+      }
+    }
+    .thumbnail {
+      &__main {
+        img {
+          border-radius: 0 1rem 1rem 0;
+        }
+      }
+    }
+  }
+
+  //
+  // Info bottom
+  &--info-bottom {
+    .card {
+      &__inner {
+        position: relative;
+        padding-bottom: 6rem;
+
+        @media (max-width: 1200px){
+          padding-bottom: 10rem;
+        }
+
+        @media (max-width: 992px) {
+          padding-bottom: 6rem;
+        }
+      }
+      &__info {
+        background-color: #{$color-white};
+        position: absolute;
+        bottom: 0;
+        left: 1.4rem;
+        right: 1.4rem;
+        z-index: 1;
+      }
+    }
+  }
+
+  //
+  // Info inside
+  &--info-inside {
+    overflow: hidden;
+
+    .card {
+      &__inner {
+        position: relative;
+        overflow: hidden;
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 1;
+          background-image: linear-gradient(transparent, rgba(0,0,0,0.7));
+          border-radius: 1rem;
+        }
+      }
+      &__thumb {
+        overflow: hidden;
+        border-radius: 1rem;
+      }
+      &__info {
+        color: #{$color-white};
+        background-color: transparent;
+        box-shadow: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        padding: 3rem 4rem;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        
+        &__inner {
+          display: block;
+          width: 100%;
+          height: auto;
+          text-align: center;
+        }
+      }
+        
+      &__title {
+        a {
+          color: #{$color-white};
+        }
+      }
+
+      &__content {
+        color: #{$color-white};
+      }
+
+      &__category {
+        margin-bottom: 0.2rem;
+      }
+
+      &__meta {
+        justify-content: center;
+        margin-top: 1rem;
+
+        p {
+          padding: 3.2rem;
+          font-weight: 200;
+          letter-spacing: 0.1em;
+        }
+      }
+    }
+  }
+}

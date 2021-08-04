@@ -1,0 +1,86 @@
+//- 7-components/form
+
+.form__field {
+  margin-bottom: 20px;
+
+  &__label {
+    margin-bottom: 8px;
+    
+    label {
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
+
+  &__info {
+    margin-top: 8px;
+    color: #{$color-dark-grey};
+    font-size: 12px;
+    line-height: 16px;
+    font-style: italic;
+  }
+}
+
+.form__input {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+
+  input, textarea {
+    border: 0;
+    border-radius: 5px;
+    background-color: #eeeeee;
+    outline: none;
+    padding: 1rem 1.2rem;
+    width: 100%;
+    font-size: 1.4rem;
+  }
+  textarea {
+    height: 12rem;
+  }
+
+  &__adornment {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+
+    button {
+      border: 0;
+      background-color: transparent;
+      outline: none;
+      padding: 0;
+      font-size: 1.6rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__tooltip {
+    font-size: 10px!important;
+    text-align: center;
+    padding: 6px 10px!important;
+    min-width: 100px;
+  }
+}
+
+.form__error {
+  margin-top: 8px;
+  color: #{$color-danger};
+  font-size: 11px;
+}
+
+.form--inline {
+  .form__main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .form__fields {
+    width: 250px;
+  }
+  .form__submit {
+    margin-left: 10px;
+  }
+}

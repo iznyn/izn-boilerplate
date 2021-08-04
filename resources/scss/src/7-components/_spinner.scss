@@ -1,0 +1,69 @@
+//- 7-components/spinner
+//-
+//- Use Spinkit (https://github.com/tobiasahlin/SpinKit)
+
+@import "spinkit/spinkit.css";
+
+.spinner {
+  --sk-color: #aaaaaa;
+
+  &--xxs {
+    --sk-size: 8px;
+  }
+
+  &--xs {
+    --sk-size: 12px;
+  }
+
+  &--sm {
+    --sk-size: 18px;
+  }
+
+  &--md {
+    --sk-size: 24px;
+  }
+
+  &--lg {
+    --sk-size: 36px;
+  }
+
+  &--xl {
+    --sk-size: 48px;
+  }
+
+  &--xxl {
+    --sk-size: 70px;
+  }
+
+  // Coloring
+  &--muted {
+    --sk-color: #{$color-muted};
+  }
+  &--grey {
+    --sk-color: #{$color-grey};
+  }
+  &--black {
+    --sk-color: #{$color-black};
+  }
+  &--white {
+    --sk-color: #{$color-white};
+  }
+  &--primary {
+    --sk-color: #{$color-primary};
+  }
+  &--secondary {
+    --sk-color: #{$color-secondary};
+  }
+  &--success {
+    --sk-color: #{$color-success};
+  }
+  &--warning {
+    --sk-color: #{$color-warning};
+  }
+  &--danger {
+    --sk-color: #{$color-danger};
+  }
+  &--info {
+    --sk-color: #{$color-info};
+  }
+}

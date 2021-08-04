@@ -1,0 +1,53 @@
+//- 7-components/slider
+
+.slider {
+  position: relative;
+
+  .slider__image {
+    img {
+      width: 100%;
+    }
+  }
+
+  .slick-arrow {
+    display: flex!important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    background-color: #{$color-primary};
+    color: #{$color-white};
+    z-index: 4;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 2rem;
+      height: 2rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    &.slick-next {
+      right: -7rem;
+
+      &:before {
+        background-image: url('../assets/images/icons/ForwardWhite.svg');
+      }
+    }
+
+    &.slick-prev {
+      left: -7rem;
+
+      &:before {
+        background-image: url('../assets/images/icons/BackwardWhite.svg');
+      }
+    }
+    &.slick-disabled {
+      opacity: 0.5;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+//- 7-components/modal/alert
+
+.modal-alert {
+  .modal {
+    &__main {
+      min-width: 48rem;
+    }
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    &__icon {
+      margin-bottom: 1.6rem;
+
+      svg {
+        font-size: 6rem;
+        color: #{$color-grey};
+      }
+    }
+    &__title {
+      h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #{$color-black};
+        margin-bottom: 1rem;
+      }
+    }
+    &__info {
+      font-size: 1.4rem;
+      color: #666666;
+    }
+    &__action {
+      margin-top: 3rem;
+    }
+  }
+
+  //
+  // Coloring
+  //
+  &--primary {
+    .modal__icon svg,
+    .modal__title h2 {
+      color: #{$color-primary};
+    }
+  }
+  &--success {
+    .modal__icon svg,
+    .modal__title h2 {
+      color: #{$color-success};
+    }
+  }
+  &--danger {
+    .modal__icon svg,
+    .modal__title h2 {
+      color: #{$color-danger};
+    }
+  }
+  &--warning {
+    .modal__icon svg,
+    .modal__title h2 {
+      color: #{$color-warning};
+    }
+  }
+  &--info {
+    .modal__icon svg,
+    .modal__title h2 {
+      color: #{$color-info};
+    }
+  }
+}

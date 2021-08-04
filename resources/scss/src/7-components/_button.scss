@@ -1,34 +1,427 @@
 //- 7-components/button
 
+@function set-text-color($color) {
+  @if (lightness($color) > 70) {
+    @return darken($color, 50);
+  }
+  @else {
+    @return lighten($color, 60);
+  }
+}
+
 .button {
   position: relative;
   outline: none;
   text-decoration: none;
   cursor: pointer;
   border: none;
-  background-color: transparent;
+  display: inline-block;
+  transition: all 0.4s;
+  color: #000000;
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    &__icon {
+      margin-right: 10px;
+    }
+  }
+
+  &:disabled, &.button--disabled, &.disabled {
+    cursor: not-allowed;
+    opacity: 0.95;
+  }
 
   //
   // Size
   &--md {
-    padding: 1.2rem 2.4rem;
+    padding: 1rem 2.2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    // > 1900px
+    @media (min-width: 1900px) {
+      padding: 1.2rem 2.8rem;
+      font-size: 1.5rem;
+    }
+
+    .button__content__icon {
+      &:first-child {
+        margin-left: -1rem;
+        margin-right: 0.9rem;
+      }
+      &:last-child {
+        margin-right: -1rem;
+        margin-left: 0.9rem;
+      }
+    }
   }
   &--xxs {
-    padding: 0.7rem 1.4rem;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    .button__content__icon {
+      &:first-child {
+        margin-left: -0.6rem;
+        margin-right: 0.5rem;
+      }
+      &:last-child {
+        margin-right: -0.6rem;
+        margin-left: 0.5rem;
+      }
+    }
   }
   &--xs {
-    padding: 0.8rem 1.6rem;
+    padding: 0.7rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 500;
+
+    .button__content__icon{
+      &:first-child {
+        margin-left: -0.9rem;
+        margin-right: 0.6rem;
+      }
+      &:last-child {
+        margin-right: -0.9rem;
+        margin-left: 0.6rem;
+      }
+    }
   }
   &--sm {
-    padding: 1rem 2rem;
+    padding: 0.8rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    .button__content__icon{
+      &:first-child {
+        margin-left: -1.2rem;
+        margin-right: 0.7rem;
+      }
+      &:last-child {
+        margin-right: -1.2rem;
+        margin-left: 0.7rem;
+      }
+    }
   }
   &--lg {
-    padding: 1.4rem 2.8rem;
+    padding: 1.2rem 2.8rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    .button__content__icon{
+      &:first-child {
+        margin-left: -1.6rem;
+        margin-right: 1rem;
+      }
+      &:last-child {
+        margin-right: -1.6rem;
+        margin-left: 1rem;
+      }
+    }
   }
   &--xl {
-    padding: 1.6rem 3.4rem;
+    padding: 1.4rem 3.4rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    .button__content__icon{
+      &:first-child {
+        margin-left: -1.8rem;
+        margin-right: 1rem;
+      }
+      &:last-child {
+        margin-right: -1.8rem;
+        margin-left: 1rem;
+      }
+    }
   }
   &--xxl {
-    padding: 1.8rem 3.8rem;
+    padding: 1.6rem 4rem;
+    font-size: 1.8rem;
+    font-weight: 800;
+
+    .button__content__icon{
+      &:first-child {
+        margin-left: -2rem;
+        margin-right: 1.2rem;
+      }
+      &:last-child {
+        margin-right: -2rem;
+        margin-left: 1.2rem;
+      }
+    }
+  }
+
+  //
+  // Coloring
+  &--white {
+    background-color: #{$color-white};
+    color: #444444;
+
+    &:hover {
+      color: #444444;
+    }
+  }
+  &--grey {
+    $greyText: darken($color-grey, 35);
+    $greyHover: darken($color-grey, 12);
+    $greyDisable: lighten($greyText, 20);
+
+    background-color: #{$color-grey};
+    color: #{$greyText};
+
+    &:hover, &:visited {
+      color: #{$greyText};
+    }
+
+    &:hover {
+      background-color: $greyHover;
+      color: #{$greyText};
+    }
+
+    &:disabled, &.button--disabled, &.disabled {
+      color: $greyDisable;
+      &:hover {
+        color: $greyDisable;
+        background-color: #{$color-grey};
+      }
+    }
+
+    &.button__loader {
+      &:hover {
+        background-color: #{$color-grey};
+        color: set-text-color($color-grey);
+      }
+    }
+  }
+  &--black {
+    $blackText: lighten($color-black, 50);
+    $blackHover: darken($color-black, 12);
+    $blackDisable: darken($blackText, 20);
+
+    background-color: #{$color-black};
+    color: #ffffff;
+
+    &:hover, &:visited {
+      color: #{$blackText};
+    }
+
+    &:hover {
+      background-color: $blackHover;
+      color: #{$blackText};
+    }
+
+    &:disabled, &.button--disabled, &.disabled {
+      color: $blackDisable;
+      &:hover {
+        color: $blackDisable;
+        background-color: #{$color-black};
+      }
+    }
+
+    &.button__loader {
+      &:hover {
+        background-color: #{$color-black};
+        color: set-text-color($color-black); 
+      }
+    }
+  }
+  &--primary {
+    $primaryHover: darken($color-primary, 12);
+    $primaryDisable: darken(set-text-color($color-primary), 20);
+
+    background-color: #{$color-primary};
+    color: set-text-color($color-primary);
+
+    &:hover, &:visited {
+      color: set-text-color($color-primary);
+    }
+
+    &:hover {
+      background-color: $primaryHover;
+      color: set-text-color($color-primary);
+    }
+
+    &:disabled, &.button--disabled, &.disabled {
+      color: $primaryDisable;
+      &:hover {
+        color: $primaryDisable;
+        background-color: #{$color-primary};
+      }
+    }
+
+    &.button__loader {
+      &:hover {
+        background-color: #{$color-primary};
+        color: set-text-color($color-primary);
+      }
+    }
+  }
+  &--secondary {
+    $secondaryHover: darken($color-secondary, 12);
+    $secondaryDisable: darken(set-text-color($color-secondary), 20);
+
+    background-color: #{$color-secondary};
+    color: set-text-color($color-secondary);
+
+    &:hover, &:visited {
+      color: set-text-color($color-secondary);
+    }
+
+    &:hover {
+      background-color: $secondaryHover;
+      color: set-text-color($color-secondary);
+    }
+
+    &:disabled, &.button--disabled, &.disabled {
+      color: $secondaryDisable;
+      &:hover {
+        color: $secondaryDisable;
+        background-color: #{$color-secondary};
+      }
+    }
+
+    &.button__loader {
+      &:hover {
+        background-color: #{$color-secondary};
+        color: set-text-color($color-secondary);
+      }
+    }
+  }
+  &--success {
+    $successHover: darken($color-success, 12);
+    $successDisable: darken(set-text-color($color-success), 20);
+
+    background-color: #{$color-success};
+    color: set-text-color($color-success);
+
+    &:hover, &:visited {
+      color: set-text-color($color-success);
+    }
+
+    &:hover {
+      background-color: $successHover;
+      color: set-text-color($color-success);
+    }
+
+    &:disabled, &.button--disabled, &.disabled {
+      color: $successDisable;
+      &:hover {
+        color: $successDisable;
+        background-color: #{$color-success};
+      }
+    }
+
+    &.button__loader {
+      &:hover {
+        background-color: #{$color-success};
+        color: set-text-color($color-success);
+      }
+    }
+  }
+  &--warning {
+    $warningHover: darken($color-warning, 12);
+    $warningDisable: darken(set-text-color($color-warning), 20);
+
+    background-color: #{$color-warning};
+    color: set-text-color($color-warning);
+
+    &:hover, &:visited {
+      color: set-text-color($color-warning);
+    }
+
+    &:hover {
+      background-color: $warningHover;
+      color: set-text-color($color-warning);
+    }
+
+    &:disabled, &.button--disabled, &.disabled {
+      color: $warningDisable;
+      &:hover {
+        color: $warningDisable;
+        background-color: #{$color-warning};
+      }
+    }
+
+    &.button__loader {
+      &:hover {
+        background-color: #{$color-warning};
+        color: set-text-color($color-warning);
+      }
+    }
+  }
+  &--danger {
+    $dangerHover: darken($color-danger, 12);
+    $dangerDisable: darken(set-text-color($color-danger), 20);
+
+    background-color: #{$color-danger};
+    color: set-text-color($color-danger);
+
+    &:hover, &:visited {
+      color: set-text-color($color-danger);
+    }
+
+    &:hover {
+      background-color: $dangerHover;
+      color: set-text-color($color-danger);
+    }
+
+    &:disabled, &.button--disabled, &.disabled {
+      color: $dangerDisable;
+      &:hover {
+        color: $dangerDisable;
+        background-color: #{$color-danger};
+      }
+    }
+
+    &.button__loader {
+      &:hover {
+        background-color: #{$color-danger};
+        color: set-text-color($color-danger);
+      }
+    }
+  }
+  &--info {
+    $infoHover: darken($color-info, 12);
+    $infoDisable: darken(set-text-color($color-info), 20);
+
+    background-color: #{$color-info};
+    color: set-text-color($color-info);
+
+    &:hover, &:visited {
+      color: set-text-color($color-info);
+    }
+
+    &:hover {
+      background-color: $infoHover;
+      color: set-text-color($color-info);
+    }
+
+    &:disabled, &.button--disabled, &.disabled {
+      color: $infoDisable;
+      &:hover {
+        color: $infoDisable;
+        background-color: #{$color-info};
+      }
+    }
+
+    &.button__loader {
+      &:hover {
+        background-color: #{$color-info};
+        color: set-text-color($color-info);
+      }
+    }
+  }
+
+  //
+  // Loader
+  &__loader {
+    cursor: not-allowed;
+    .spinner {
+      --sk-color: #ffffff;
+    }
   }
 }

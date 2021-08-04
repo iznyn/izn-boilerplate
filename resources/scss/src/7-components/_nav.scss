@@ -12,6 +12,11 @@
         flex-direction: row;
         align-items: center;
         font-size: $text-sm;
+        font-weight: 600;
+        padding: 1.2rem 3rem;
+        border-radius: 0.8rem;
+        transition: all 0.4s;
+        color: #{$color-black};
 
         .icon {
           margin-right: 1rem;
@@ -30,9 +35,17 @@
         }
 
         &:hover {
+          background-color: #{$color-primary};
+          color: #{$color-white};
+
           .icon + span {
             color: $color-primary;
           }
+        }
+
+        &[data-state="active"] {
+          background-color: #{$color-primary};
+          color: #{$color-white};
         }
       }
     }
@@ -40,6 +53,7 @@
 
   a {
     text-decoration: none;
+    transition: all 0.4s;
   }
 
   //- Horizontal
@@ -50,7 +64,7 @@
       align-items: center;
 
       > li {
-        margin: 0 3rem;
+        margin: 0 0.5rem;
       }
     }
   }
@@ -67,6 +81,31 @@
         > a {
           padding: 1rem 0;
           text-decoration: none;
+        }
+      }
+    }
+  }
+
+  //- Social
+  &--social {
+    > ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      > li {
+        margin: 0 1rem;
+
+        > a {
+          font-size: 2rem;
+          color: #{$color-grey};
+
+          &:hover {
+            color: #{$color-black};
+          }
         }
       }
     }

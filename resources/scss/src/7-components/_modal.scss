@@ -1,0 +1,85 @@
+//- 7-components/modal
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    transition: all 0.4s;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &__main {
+    position: relative;
+    z-index: 2;
+    min-width: 42rem;
+    max-width: 78rem;
+    padding: 3rem;
+    border-radius: 15px;
+    background-color: #ffffff;
+    transition: all 0.4s;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10rem);
+  }
+
+  &__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+
+    button {
+      border: 0;
+      outline: none;
+      padding: 0;
+      background-color: transparent;
+      font-size: 1.8rem;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+
+  // State
+  &[data-state="open"] {
+    visibility: visible;
+
+    .modal {
+      &__overlay {
+        visibility: visible;
+        opacity: 1;
+      }
+      &__main {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s;
+      }
+    }
+  }
+  &[data-state="close"] {
+    .modal__overlay {
+      transition-delay: 0.2s;
+    }
+  }
+}
