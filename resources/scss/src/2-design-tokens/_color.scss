@@ -10,8 +10,8 @@
   &muted {
     color: #{$color-muted};
   }
-  &gray {
-    color: #{$color-gray};
+  &grey {
+    color: #{$color-grey};
   }
   &primary {
     color: #{$color-primary};
@@ -43,8 +43,8 @@
   &muted {
     background-color: #{$color-muted};
   }
-  &gray {
-    background-color: #{$color-gray};
+  &grey {
+    background-color: #{$color-grey};
   }
   &primary {
     background-color: #{$color-primary};
@@ -64,6 +64,7 @@
   &info {
     background-color: #{$color-info};
   }
+}
 
 .border-- {
   &black {
@@ -75,8 +76,8 @@
   &muted {
     border-color: #{$color-muted};
   }
-  &gray {
-    border-color: #{$color-gray};
+  &grey {
+    border-color: #{$color-grey};
   }
   &primary {
     border-color: #{$color-primary};

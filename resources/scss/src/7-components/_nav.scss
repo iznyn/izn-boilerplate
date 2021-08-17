@@ -33,20 +33,6 @@
           font-size: 1.2rem;
           transition: transform 0.4s;
         }
-
-        &:hover {
-          background-color: #{$color-primary};
-          color: #{$color-white};
-
-          .icon + span {
-            color: $color-primary;
-          }
-        }
-
-        &[data-state="active"] {
-          background-color: #{$color-primary};
-          color: #{$color-white};
-        }
       }
     }
   }
@@ -65,6 +51,22 @@
 
       > li {
         margin: 0 0.5rem;
+
+        > a {
+          &:hover {
+            background-color: #{$color-primary};
+            color: #{$color-white};
+
+            .icon + span {
+              color: $color-primary;
+            }
+          }
+
+          &[data-state="active"], &.active {
+            background-color: #{$color-primary};
+            color: #{$color-white};
+          }
+        }
       }
     }
   }
@@ -78,8 +80,9 @@
     }
     > ul {
       > li {
+        // border-bottom: 1px solid #{$color-grey};
         > a {
-          padding: 1rem 0;
+          padding: 2rem 0;
           text-decoration: none;
         }
       }
@@ -102,6 +105,7 @@
         > a {
           font-size: 2rem;
           color: #{$color-grey};
+          transition: all 0.4s;
 
           &:hover {
             color: #{$color-black};
